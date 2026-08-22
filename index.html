@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GlobeTrotter — Travel Planner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="bg-orb orb-one"></div>
+  <div class="bg-orb orb-two"></div>
+
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">G</div>
+        <div>
+          <strong>GlobeTrotter</strong>
+          <span>Travel smarter</span>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <button class="nav-item active" data-screen="home"><span>⌂</span> Dashboard</button>
+        <button class="nav-item" data-screen="create"><span>＋</span> Create Trip</button>
+        <button class="nav-item" data-screen="trips"><span>▣</span> My Trips</button>
+        <button class="nav-item" data-screen="itinerary"><span>◷</span> Itinerary</button>
+      </nav>
+
+      <div class="sidebar-card">
+        <div class="mini-icon">✦</div>
+        <strong>Plan your next escape</strong>
+        <p>Build a multi-city journey in a few simple steps.</p>
+        <button class="small-btn" id="sidebarCreate">Start planning</button>
+      </div>
+
+      <div class="profile-mini">
+        <div class="avatar">M</div>
+        <div>
+          <strong>Traveler</strong>
+          <span>Personal account</span>
+        </div>
+        <button class="dots">•••</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu">☰</button>
+        <div class="breadcrumb" id="breadcrumb">Dashboard</div>
+        <div class="top-actions">
+          <button class="icon-btn" title="Notifications">♢</button>
+          <button class="profile-btn"><span class="avatar small">M</span><span>My profile</span>⌄</button>
+        </div>
+      </header>
+
+      <section class="screen active" id="home">
+        <div class="hero">
+          <div>
+            <span class="eyebrow">YOUR TRAVEL SPACE</span>
+            <h1>Turn ideas into<br><em>unforgettable journeys.</em></h1>
+            <p>Create, organize and visualize your trips — from the first destination to the final day.</p>
+            <button class="primary-btn" data-go="create">＋ Plan a new trip <span>→</span></button>
+          </div>
+          <div class="hero-art">
+            <div class="sun"></div>
+            <div class="mountain m1"></div>
+            <div class="mountain m2"></div>
+            <div class="road"></div>
+            <div class="floating-card">✈ <b>Adventure awaits</b><br><small>Start somewhere beautiful</small></div>
+          </div>
+        </div>
+
+        <div class="section-head">
+          <div><span class="eyebrow">QUICK OVERVIEW</span><h2>Your travel dashboard</h2></div>
+          <button class="text-btn" data-go="trips">View all trips →</button>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card"><span>Upcoming trips</span><strong id="statTrips">0</strong><small>Ready to explore</small></div>
+          <div class="stat-card"><span>Destinations</span><strong id="statDestinations">0</strong><small>Across your plans</small></div>
+          <div class="stat-card"><span>Planned days</span><strong id="statDays">0</strong><small>Of future adventures</small></div>
+        </div>
+
+        <div class="section-head compact">
+          <div><span class="eyebrow">RECENT</span><h2>Recent trips</h2></div>
+        </div>
+        <div class="trip-grid" id="recentTrips"></div>
+      </section>
+
+      <section class="screen" id="create">
+        <div class="page-heading">
+          <div>
+            <span class="eyebrow">NEW JOURNEY</span>
+            <h1>Create a new trip</h1>
+            <p>Start with the basics. You can build cities, activities and budgets next.</p>
+          </div>
+          <div class="step-pill"><b>01</b> Trip details <span>→</span> 02 Itinerary</div>
+        </div>
+
+        <form class="create-layout" id="tripForm">
+          <div class="form-card">
+            <div class="card-title"><span class="number">1</span><div><h3>Trip details</h3><p>Give your journey a name and timeframe.</p></div></div>
+
+            <label>Trip name <span>*</span></label>
+            <input id="tripName" required placeholder="e.g. European Summer Escape">
+
+            <div class="two-col">
+              <div>
+                <label>Start date <span>*</span></label>
+                <input id="startDate" type="date" required>
+              </div>
+              <div>
+                <label>End date <span>*</span></label>
+                <input id="endDate" type="date" required>
+              </div>
+            </div>
+
+            <label>Trip description</label>
+            <textarea id="description" rows="5" placeholder="What makes this trip special? Add a short description..."></textarea>
+
+            <label>Cover photo <small>(optional)</small></label>
+            <div class="upload" id="uploadBox">
+              <input id="coverPhoto" type="file" accept="image/*" hidden>
+              <div class="upload-icon">↥</div>
+              <strong>Drop an image here or <u>browse</u></strong>
+              <span>JPG, PNG or WEBP · up to 5 MB</span>
+              <img id="preview" alt="Cover preview">
+            </div>
+
+            <div class="form-actions">
+              <button type="button" class="secondary-btn" data-go="home">Cancel</button>
+              <button class="primary-btn" type="submit">Save trip <span>→</span></button>
+            </div>
+          </div>
+
+          <aside class="preview-card">
+            <span class="eyebrow">LIVE PREVIEW</span>
+            <div class="preview-cover" id="previewCover">
+              <div class="preview-gradient"></div>
+              <span class="preview-tag">NEW TRIP</span>
+            </div>
+            <div class="preview-body">
+              <h3 id="previewName">Your trip name</h3>
+              <p id="previewDates">Choose your travel dates</p>
+              <div class="preview-line"></div>
+              <p id="previewDescription">Your description will appear here as you type.</p>
+              <div class="preview-meta"><span>◎ 0 cities</span><span>◷ 0 days</span></div>
+            </div>
+          </aside>
+        </form>
+      </section>
+
+      <section class="screen" id="trips">
+        <div class="page-heading">
+          <div><span class="eyebrow">YOUR JOURNEYS</span><h1>My trips</h1><p>All your saved travel plans in one place.</p></div>
+          <button class="primary-btn" data-go="create">＋ New trip</button>
+        </div>
+        <div class="filter-row">
+          <div class="search-box">⌕ <input id="tripSearch" placeholder="Search your trips..."></div>
+          <button class="filter-btn">All trips ⌄</button>
+        </div>
+        <div class="trip-grid full" id="allTrips"></div>
+      </section>
+
+      <section class="screen" id="itinerary">
+        <div class="page-heading">
+          <div><span class="eyebrow">TRIP FLOW</span><h1>Itinerary builder</h1><p>Add stops, dates and activities to turn a trip into a complete plan.</p></div>
+          <button class="primary-btn" data-go="create">＋ Create trip</button>
+        </div>
+        <div class="empty-itinerary">
+          <div class="empty-icon">✦</div>
+          <h2>Your itinerary starts here</h2>
+          <p>Create a trip first, then add cities and activities day by day.</p>
+          <button class="secondary-btn" data-go="create">Create my first trip</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="app.js"></script>
+</body>
+</html>
