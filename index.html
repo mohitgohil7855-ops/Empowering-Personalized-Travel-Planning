@@ -1,187 +1,320 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GlobeTrotter — Travel Planner</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>GlobeTrotter - Home</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary": "#ffffff",
+                      "on-primary": "#ffffff",
+                      "tertiary-fixed-dim": "#62dca3",
+                      "on-background": "#1b1c1c",
+                      "secondary-container": "#8eeff4",
+                      "inverse-surface": "#303030",
+                      "primary-container": "#e21e4a",
+                      "surface": "#fcf9f8",
+                      "on-error-container": "#93000a",
+                      "outline": "#906f70",
+                      "surface-variant": "#e5e2e1",
+                      "surface-container-lowest": "#ffffff",
+                      "on-surface": "#1b1c1c",
+                      "on-error": "#ffffff",
+                      "error": "#ba1a1a",
+                      "inverse-primary": "#ffb2b6",
+                      "tertiary": "#006a45",
+                      "surface-container-high": "#eae7e7",
+                      "secondary-fixed-dim": "#74d6db",
+                      "surface-container-highest": "#e5e2e1",
+                      "tertiary-fixed": "#80f9bd",
+                      "primary-fixed": "#ffdada",
+                      "tertiary-container": "#008558",
+                      "surface-tint": "#be0038",
+                      "surface-container": "#f0eded",
+                      "on-primary-container": "#fffbff",
+                      "primary": "#ba0036",
+                      "inverse-on-surface": "#f3f0ef",
+                      "background": "#fcf9f8",
+                      "surface-bright": "#fcf9f8",
+                      "on-secondary-container": "#006e72",
+                      "on-primary-fixed-variant": "#920029",
+                      "on-secondary": "#ffffff",
+                      "primary-fixed-dim": "#ffb2b6",
+                      "secondary": "#00696d",
+                      "surface-container-low": "#f6f3f2",
+                      "on-secondary-fixed": "#002021",
+                      "secondary-fixed": "#91f2f7",
+                      "on-tertiary-container": "#f6fff6",
+                      "on-secondary-fixed-variant": "#004f52",
+                      "on-surface-variant": "#5c3f41",
+                      "surface-dim": "#dcd9d9",
+                      "on-primary-fixed": "#40000d",
+                      "on-tertiary-fixed": "#002113",
+                      "on-tertiary-fixed-variant": "#005234",
+                      "outline-variant": "#e5bdbe",
+                      "error-container": "#ffdad6"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "xxl": "48px",
+                      "md": "16px",
+                      "lg": "24px",
+                      "xs": "4px",
+                      "margin-mobile": "24px",
+                      "xl": "32px",
+                      "container-max": "1280px",
+                      "sm": "8px",
+                      "xxxl": "64px",
+                      "unit": "4px",
+                      "gutter": "24px"
+              },
+              "fontFamily": {
+                      "body-sm": ["Plus Jakarta Sans"],
+                      "headline-md": ["Plus Jakarta Sans"],
+                      "headline-lg-mobile": ["Plus Jakarta Sans"],
+                      "label-sm": ["Plus Jakarta Sans"],
+                      "body-lg": ["Plus Jakarta Sans"],
+                      "body-md": ["Plus Jakarta Sans"],
+                      "headline-lg": ["Plus Jakarta Sans"],
+                      "display-lg": ["Plus Jakarta Sans"],
+                      "label-md": ["Plus Jakarta Sans"]
+              },
+              "fontSize": {
+                      "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "headline-md": ["22px", {"lineHeight": "28px", "fontWeight": "600"}],
+                      "headline-lg-mobile": ["26px", {"lineHeight": "32px", "fontWeight": "700"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "700"}],
+                      "body-lg": ["18px", {"lineHeight": "26px", "fontWeight": "400"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                      "label-md": ["14px", {"lineHeight": "18px", "fontWeight": "600"}]
+              }
+            }
+          }
+        }
+      </script>
 </head>
-<body>
-  <div class="bg-orb orb-one"></div>
-  <div class="bg-orb orb-two"></div>
-
-  <div class="app-shell">
-    <aside class="sidebar">
-      <div class="brand">
-        <div class="brand-mark">G</div>
-        <div>
-          <strong>GlobeTrotter</strong>
-          <span>Travel smarter</span>
-        </div>
-      </div>
-
-      <nav class="nav">
-        <button class="nav-item active" data-screen="home"><span>⌂</span> Dashboard</button>
-        <button class="nav-item" data-screen="create"><span>＋</span> Create Trip</button>
-        <button class="nav-item" data-screen="trips"><span>▣</span> My Trips</button>
-        <button class="nav-item" data-screen="itinerary"><span>◷</span> Itinerary</button>
-      </nav>
-
-      <div class="sidebar-card">
-        <div class="mini-icon">✦</div>
-        <strong>Plan your next escape</strong>
-        <p>Build a multi-city journey in a few simple steps.</p>
-        <button class="small-btn" id="sidebarCreate">Start planning</button>
-      </div>
-
-      <div class="profile-mini">
-        <div class="avatar">M</div>
-        <div>
-          <strong>Traveler</strong>
-          <span>Personal account</span>
-        </div>
-        <button class="dots">•••</button>
-      </div>
-    </aside>
-
-    <main class="main">
-      <header class="topbar">
-        <button class="mobile-menu" id="mobileMenu">☰</button>
-        <div class="breadcrumb" id="breadcrumb">Dashboard</div>
-        <div class="top-actions">
-          <button class="icon-btn" title="Notifications">♢</button>
-          <button class="profile-btn"><span class="avatar small">M</span><span>My profile</span>⌄</button>
-        </div>
-      </header>
-
-      <section class="screen active" id="home">
-        <div class="hero">
-          <div>
-            <span class="eyebrow">YOUR TRAVEL SPACE</span>
-            <h1>Turn ideas into<br><em>unforgettable journeys.</em></h1>
-            <p>Create, organize and visualize your trips — from the first destination to the final day.</p>
-            <button class="primary-btn" data-go="create">＋ Plan a new trip <span>→</span></button>
-          </div>
-          <div class="hero-art">
-            <div class="sun"></div>
-            <div class="mountain m1"></div>
-            <div class="mountain m2"></div>
-            <div class="road"></div>
-            <div class="floating-card">✈ <b>Adventure awaits</b><br><small>Start somewhere beautiful</small></div>
-          </div>
-        </div>
-
-        <div class="section-head">
-          <div><span class="eyebrow">QUICK OVERVIEW</span><h2>Your travel dashboard</h2></div>
-          <button class="text-btn" data-go="trips">View all trips →</button>
-        </div>
-
-        <div class="stats-grid">
-          <div class="stat-card"><span>Upcoming trips</span><strong id="statTrips">0</strong><small>Ready to explore</small></div>
-          <div class="stat-card"><span>Destinations</span><strong id="statDestinations">0</strong><small>Across your plans</small></div>
-          <div class="stat-card"><span>Planned days</span><strong id="statDays">0</strong><small>Of future adventures</small></div>
-        </div>
-
-        <div class="section-head compact">
-          <div><span class="eyebrow">RECENT</span><h2>Recent trips</h2></div>
-        </div>
-        <div class="trip-grid" id="recentTrips"></div>
-      </section>
-
-      <section class="screen" id="create">
-        <div class="page-heading">
-          <div>
-            <span class="eyebrow">NEW JOURNEY</span>
-            <h1>Create a new trip</h1>
-            <p>Start with the basics. You can build cities, activities and budgets next.</p>
-          </div>
-          <div class="step-pill"><b>01</b> Trip details <span>→</span> 02 Itinerary</div>
-        </div>
-
-        <form class="create-layout" id="tripForm">
-          <div class="form-card">
-            <div class="card-title"><span class="number">1</span><div><h3>Trip details</h3><p>Give your journey a name and timeframe.</p></div></div>
-
-            <label>Trip name <span>*</span></label>
-            <input id="tripName" required placeholder="e.g. European Summer Escape">
-
-            <div class="two-col">
-              <div>
-                <label>Start date <span>*</span></label>
-                <input id="startDate" type="date" required>
-              </div>
-              <div>
-                <label>End date <span>*</span></label>
-                <input id="endDate" type="date" required>
-              </div>
+<body class="bg-background text-on-background font-body-md antialiased pt-20">
+<!-- TopNavBar (Shared Component) -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-8 h-20 bg-surface dark:bg-surface-container-low shadow-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="travel_explore">travel_explore</span>
+<span class="text-headline-md font-headline-md font-extrabold text-primary dark:text-primary-fixed">GlobeTrotter</span>
+</div>
+<nav class="hidden md:flex gap-8">
+<a class="text-on-surface dark:text-on-surface font-bold border-b-2 border-primary pb-1" href="#">Destinations</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-body-md hover:text-on-surface transition-colors" href="#">Experiences</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-body-md hover:text-on-surface transition-colors" href="#">Online Hosts</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="hidden md:block font-label-md text-label-md text-on-surface hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-colors duration-200 rounded-full px-4 py-2">Become a Host</button>
+<div class="flex items-center gap-2 border border-outline-variant rounded-full p-2 hover:shadow-md transition-shadow cursor-pointer bg-surface">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="language">language</span>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="menu">menu</span>
+<div class="w-8 h-8 rounded-full bg-surface-variant overflow-hidden">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="A generic user profile placeholder image with a modern, minimal aesthetic. A stylized silhouette in soft gray tones against a pure white background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuABd00rm0HFS6CtzgH1nLJD_qzgrjt5f1ArKRW1_rAolLuKJyESDn6-UL7E3KJObSyZrK28F6bzCUUREkKYUCaji6Qc-VWTNw5IbktBTNs0imGvAyVC9T419Caqd8x_AC6_GLpJXRYeviZfnHN3sz7xKm5q-vuk1KYLEGUWIPRXRMiY2tHyUvai8QVs3QvDcJatjwUOIWCV80dTMYD3xaw5JEuT11uCPvZ2xdG084YqisCWNz34Yn8r"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Hero Section with Search -->
+<section class="relative w-full h-[60vh] min-h-[500px] flex flex-col items-center justify-center px-4 md:px-8 mt-4 max-w-[1600px] mx-auto rounded-3xl overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center w-full h-full" data-alt="A breathtaking panoramic view of a serene coastal village nested in lush green cliffs, overlooking crystal clear turquoise waters. The scene is bathed in warm, golden hour sunlight, highlighting the modern architecture with clean white walls and terracotta roofs. The overall mood is optimistic, inviting, and luxurious, perfectly capturing a dream vacation destination." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCMGJKXJgEn4YI6c40rXdjolsKTkDblLEADRpcm71zDVmtktOEjeUDQdaDR6gtOp7L5K49yAJlbGhW969iCBC77ADsLg_kjHu24Ia07Eyk28DcpFWTd_Ebh91N2XXwZA3sjRyE94BJXNzF4BOgK9xZu_deoEUPYkwv0EKrEMnXDb9mqxh3uVIOch6rWUZHB_OOkSxnYeGtU74ld5Ao1YnKgX8Y3dAsf8gvw_a_ExEePqlFbpKH-xRC0')"></div>
+<div class="absolute inset-0 bg-black/20"></div>
+<div class="relative z-10 w-full max-w-4xl bg-surface rounded-full shadow-[0px_12px_24px_rgba(0,0,0,0.15)] flex flex-col md:flex-row items-center p-2 mt-auto mb-12">
+<div class="flex-1 w-full md:w-auto px-6 py-3 hover:bg-surface-container-low rounded-full cursor-pointer transition-colors border-b md:border-b-0 md:border-r border-surface-variant">
+<div class="font-label-sm text-label-sm text-on-surface">Where</div>
+<input class="w-full bg-transparent border-none p-0 focus:ring-0 text-body-md font-body-md text-on-surface-variant placeholder-on-surface-variant/50" placeholder="Search destinations" type="text"/>
+</div>
+<div class="flex-1 w-full md:w-auto px-6 py-3 hover:bg-surface-container-low rounded-full cursor-pointer transition-colors border-b md:border-b-0 md:border-r border-surface-variant">
+<div class="font-label-sm text-label-sm text-on-surface">When</div>
+<div class="text-body-md font-body-md text-on-surface-variant">Add dates</div>
+</div>
+<div class="flex-1 w-full md:w-auto px-6 py-3 hover:bg-surface-container-low rounded-full cursor-pointer transition-colors flex justify-between items-center">
+<div>
+<div class="font-label-sm text-label-sm text-on-surface">Who</div>
+<div class="text-body-md font-body-md text-on-surface-variant">Add guests</div>
+</div>
+<button class="bg-[#FF385C] hover:bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-white" data-icon="search">search</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Category Bar -->
+<section class="max-w-container-max mx-auto px-8 mt-12 mb-8">
+<div class="flex gap-8 overflow-x-auto pb-4 hide-scrollbar">
+<div class="flex flex-col items-center gap-2 cursor-pointer border-b-2 border-on-surface pb-2 min-w-max opacity-100 hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-on-surface text-2xl" data-icon="pool">pool</span>
+<span class="font-label-sm text-label-sm text-on-surface">Amazing Pools</span>
+</div>
+<div class="flex flex-col items-center gap-2 cursor-pointer border-b-2 border-transparent pb-2 min-w-max opacity-60 hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-on-surface text-2xl" data-icon="landscape">landscape</span>
+<span class="font-label-sm text-label-sm text-on-surface">Islands</span>
+</div>
+<div class="flex flex-col items-center gap-2 cursor-pointer border-b-2 border-transparent pb-2 min-w-max opacity-60 hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-on-surface text-2xl" data-icon="cabin">cabin</span>
+<span class="font-label-sm text-label-sm text-on-surface">Cabins</span>
+</div>
+<div class="flex flex-col items-center gap-2 cursor-pointer border-b-2 border-transparent pb-2 min-w-max opacity-60 hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-on-surface text-2xl" data-icon="forest">forest</span>
+<span class="font-label-sm text-label-sm text-on-surface">National Parks</span>
+</div>
+<div class="flex flex-col items-center gap-2 cursor-pointer border-b-2 border-transparent pb-2 min-w-max opacity-60 hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-on-surface text-2xl" data-icon="castle">castle</span>
+<span class="font-label-sm text-label-sm text-on-surface">Castles</span>
+</div>
+<div class="flex flex-col items-center gap-2 cursor-pointer border-b-2 border-transparent pb-2 min-w-max opacity-60 hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-on-surface text-2xl" data-icon="beach_access">beach_access</span>
+<span class="font-label-sm text-label-sm text-on-surface">Beachfront</span>
+</div>
+</div>
+</section>
+<style>
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<!-- Destination Grid -->
+<section class="max-w-container-max mx-auto px-8 mb-xxxl">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Card 1 -->
+<div class="flex flex-col gap-3 group cursor-pointer">
+<div class="relative w-full aspect-square rounded-xl overflow-hidden">
+<img alt="Destination" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A modern, minimalist cabin surrounded by dense pine trees. The cabin features large floor-to-ceiling glass windows reflecting a warm, inviting sunset. The lighting is soft and golden, creating a cozy, secluded retreat vibe perfect for a relaxing getaway." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRxtTp1yxrNWgIT3TYvmKyR57fW11VCrC7mhWHTpuKE4ZadqtSv8zvlTPII8TYkQT0_ua2mooXBHKemOpnSS3LG2RTIWHYckx7t01yio8O7FQ-A3fcdZ6vQvxS0zS3JiBGk9dN5Bkn2QM2hKKoSY_MH_EWxAFFIv8Xi6Syg2NywTj29ckF017eu4uIW4mGFbfYocCcI4F6uJtUOwyXcColgt3y7Syv61ozyuVV1zMbH_mHob0AnJdG"/>
+<button class="absolute top-3 right-3 text-white hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="favorite" style="font-variation-settings: 'FILL' 0;">favorite</span>
+</button>
+</div>
+<div>
+<div class="flex justify-between items-start">
+<h3 class="font-label-md text-label-md text-on-surface">Aspen, Colorado</h3>
+<div class="flex items-center gap-1 text-on-surface font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>4.98</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Mountain views</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Oct 15 - 20</p>
+<p class="font-label-md text-label-md text-on-surface mt-1"><span class="font-bold">$250</span> night</p>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="flex flex-col gap-3 group cursor-pointer">
+<div class="relative w-full aspect-square rounded-xl overflow-hidden">
+<img alt="Destination" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A stunning infinity pool overlooking a vast, deep blue ocean. The pool edge blends seamlessly with the horizon. Bright, clear daylight illuminates the modern, clean-lined white lounge chairs beside the pool. The mood is highly luxurious, tranquil, and pristine." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpU7qiQBQAcPK40d_7h7yG61ZINZYi2rswmh-UncqIaVeo43oaGDtTs7IQOH3qAVNZK2k2UT-EgYiXQgyK7GyZxk7cNiGtLFi49cyfUjmh55iVJ_r7tT9xopRWsau2WnIMIjYtfNnrCxa8VC4LzXG5ZY2BOTwRuCPIivhpkTOPbjKggbsxVHryOiN5GaGYyGIWwnnlrsC99A-8s5udPCx-b2MpdR2ToqWrnEkTmx5tIp4WUVszU1do"/>
+<button class="absolute top-3 right-3 text-white hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="favorite" style="font-variation-settings: 'FILL' 0;">favorite</span>
+</button>
+</div>
+<div>
+<div class="flex justify-between items-start">
+<h3 class="font-label-md text-label-md text-on-surface">Santorini, Greece</h3>
+<div class="flex items-center gap-1 text-on-surface font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>4.95</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Ocean view</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Sep 10 - 17</p>
+<p class="font-label-md text-label-md text-on-surface mt-1"><span class="font-bold">$420</span> night</p>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="flex flex-col gap-3 group cursor-pointer">
+<div class="relative w-full aspect-square rounded-xl overflow-hidden">
+<img alt="Destination" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A picturesque stone villa nestled in rolling hills with vineyards. The architecture is rustic yet refined, bathed in warm, dappled sunlight filtering through ancient olive trees. The overall aesthetic is romantic, grounded, and timeless, evoking a peaceful countryside escape." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDz7YHJ37so-49NQNG25OslSskXRfGl6fcBHoIYz2gOk2UmS5EZtG2ys86fpuJXavIhD355-ANpodDip7oI0tqXVSPzRpfWfQhVsfKDWKZXoHf8h9SQ_Zu24QAyM2nskWBF9yy7V7hXeZf3yX6X5CrG7T81Cv2lRXLF_2lB8XrIl2fZDDPOPIJbJIHOU5rHNExLtJSJiBuvEPWB_EEzgrF3VWv_D9vo9RwcZKj-F0DmmxsjJF9s1ege"/>
+<button class="absolute top-3 right-3 text-white hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="favorite" style="font-variation-settings: 'FILL' 0;">favorite</span>
+</button>
+</div>
+<div>
+<div class="flex justify-between items-start">
+<h3 class="font-label-md text-label-md text-on-surface">Tuscany, Italy</h3>
+<div class="flex items-center gap-1 text-on-surface font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>4.89</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Vineyard estate</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Nov 2 - 8</p>
+<p class="font-label-md text-label-md text-on-surface mt-1"><span class="font-bold">$310</span> night</p>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="flex flex-col gap-3 group cursor-pointer">
+<div class="relative w-full aspect-square rounded-xl overflow-hidden">
+<img alt="Destination" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A sleek, modern treehouse structure elevated among lush tropical canopy. The design features minimalist wood and glass, blending perfectly with the vibrant green surroundings. Soft, diffused daylight creates a calm, eco-friendly, and adventurous atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHNpo7XzV6tsr4VvtJTRp2KaRPmNAS4Bif9rg0g4OxNHSARmc9on6feqIk67_zJetsvdrXxODlJAYTKEkIeRCPfHeWWW4JNGOAx0zZObMz7f4D6wNPWpdPcKAfcveGd1tse-oLuDF9zTcPZ2K4xtiuVTtqX2Ww1cPQUU5fxvGpYvhaFIiptJmAMHrkw3TlNH1_UnZ3nFjxSXiPTlIbKsyJ1i74YtrDXwNMqzxXTo5uP7Bp6kMU9Hqu"/>
+<button class="absolute top-3 right-3 text-white hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="favorite" style="font-variation-settings: 'FILL' 0;">favorite</span>
+</button>
+</div>
+<div>
+<div class="flex justify-between items-start">
+<h3 class="font-label-md text-label-md text-on-surface">Bali, Indonesia</h3>
+<div class="flex items-center gap-1 text-on-surface font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>4.99</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Jungle retreat</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Dec 5 - 12</p>
+<p class="font-label-md text-label-md text-on-surface mt-1"><span class="font-bold">$180</span> night</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Inspiration / Hosting Section -->
+<section class="max-w-container-max mx-auto px-8 mb-xxxl">
+<div class="relative w-full h-[400px] rounded-2xl overflow-hidden flex items-center bg-surface-container-low">
+<div class="absolute inset-0 bg-cover bg-center w-full h-full opacity-80 mix-blend-multiply" data-alt="A warm, inviting lifestyle shot of a smiling host holding a tray of fresh, colorful breakfast foods in a bright, modern kitchen. Sunlight streams through a large window, highlighting the clean white countertops and subtle red accents in the decor. The mood is welcoming, authentic, and high-quality." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCFcQZuIwO33AiyLPfscU7kGkvXRumPUiH9Bb0ktHS-XdptQbCQIAzHuIuZEWHbVWvyK7Msn_YEFrQdrCpT-diX-EIASYTOGukahOL-W5q1zIx6gISnX6Xm4QlBLtf2tpSjL1ndg3QG5VKCG0YD1VEzJp3-QPAgbulzjoRpPQ0o0pjGwECQ6oK4oWwd7oVnaDq9xnf3SztbATwvzDhmoBGW0Dob4aNUgboHA31ofENK5FJgGHWwMnp7')"></div>
+<div class="relative z-10 w-full max-w-lg p-12 flex flex-col gap-6">
+<h2 class="font-display-lg text-display-lg text-white drop-shadow-md">Open your door to hosting</h2>
+<p class="font-body-lg text-body-lg text-white drop-shadow-md">Earn money doing what you love and invite the world into your space.</p>
+<button class="w-fit bg-white text-on-surface font-label-md text-label-md px-6 py-3 rounded-xl hover:bg-surface-variant transition-colors shadow-[0px_6px_16px_rgba(0,0,0,0.12)]">Learn more</button>
+</div>
+</div>
+</section>
+<!-- Footer (Shared Component) -->
+<footer class="w-full py-12 px-8 mt-xxl max-w-7xl mx-auto flex flex-col gap-8 bg-surface-container-low dark:bg-surface-container-lowest border-t border-outline-variant dark:border-outline">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+<div class="text-label-md font-label-md font-bold text-on-surface dark:text-on-surface">
+                © 2024 GlobeTrotter, Inc.
             </div>
-
-            <label>Trip description</label>
-            <textarea id="description" rows="5" placeholder="What makes this trip special? Add a short description..."></textarea>
-
-            <label>Cover photo <small>(optional)</small></label>
-            <div class="upload" id="uploadBox">
-              <input id="coverPhoto" type="file" accept="image/*" hidden>
-              <div class="upload-icon">↥</div>
-              <strong>Drop an image here or <u>browse</u></strong>
-              <span>JPG, PNG or WEBP · up to 5 MB</span>
-              <img id="preview" alt="Cover preview">
-            </div>
-
-            <div class="form-actions">
-              <button type="button" class="secondary-btn" data-go="home">Cancel</button>
-              <button class="primary-btn" type="submit">Save trip <span>→</span></button>
-            </div>
-          </div>
-
-          <aside class="preview-card">
-            <span class="eyebrow">LIVE PREVIEW</span>
-            <div class="preview-cover" id="previewCover">
-              <div class="preview-gradient"></div>
-              <span class="preview-tag">NEW TRIP</span>
-            </div>
-            <div class="preview-body">
-              <h3 id="previewName">Your trip name</h3>
-              <p id="previewDates">Choose your travel dates</p>
-              <div class="preview-line"></div>
-              <p id="previewDescription">Your description will appear here as you type.</p>
-              <div class="preview-meta"><span>◎ 0 cities</span><span>◷ 0 days</span></div>
-            </div>
-          </aside>
-        </form>
-      </section>
-
-      <section class="screen" id="trips">
-        <div class="page-heading">
-          <div><span class="eyebrow">YOUR JOURNEYS</span><h1>My trips</h1><p>All your saved travel plans in one place.</p></div>
-          <button class="primary-btn" data-go="create">＋ New trip</button>
-        </div>
-        <div class="filter-row">
-          <div class="search-box">⌕ <input id="tripSearch" placeholder="Search your trips..."></div>
-          <button class="filter-btn">All trips ⌄</button>
-        </div>
-        <div class="trip-grid full" id="allTrips"></div>
-      </section>
-
-      <section class="screen" id="itinerary">
-        <div class="page-heading">
-          <div><span class="eyebrow">TRIP FLOW</span><h1>Itinerary builder</h1><p>Add stops, dates and activities to turn a trip into a complete plan.</p></div>
-          <button class="primary-btn" data-go="create">＋ Create trip</button>
-        </div>
-        <div class="empty-itinerary">
-          <div class="empty-icon">✦</div>
-          <h2>Your itinerary starts here</h2>
-          <p>Create a trip first, then add cities and activities day by day.</p>
-          <button class="secondary-btn" data-go="create">Create my first trip</button>
-        </div>
-      </section>
-    </main>
-  </div>
-
-  <div class="toast" id="toast"></div>
-  <script src="app.js"></script>
-</body>
-</html>
+<div class="flex flex-wrap gap-6">
+<a class="text-on-surface-variant dark:text-on-surface-variant font-label-md text-label-md hover:underline transition-all focus:ring-2 focus:ring-primary rounded" href="#">Support</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-label-md text-label-md hover:underline transition-all focus:ring-2 focus:ring-primary rounded" href="#">Community</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-label-md text-label-md hover:underline transition-all focus:ring-2 focus:ring-primary rounded" href="#">Hosting</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-label-md text-label-md hover:underline transition-all focus:ring-2 focus:ring-primary rounded" href="#">About</a>
+<div class="flex items-center gap-4 ml-0 md:ml-4 border-t md:border-t-0 pt-4 md:pt-0 border-outline-variant w-full md:w-auto">
+<a class="flex items-center gap-1 text-on-surface-variant dark:text-on-surface-variant font-label-md text-label-md hover:underline transition-all focus:ring-2 focus:ring-primary rounded" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="language">language</span>
+                        Language
+                    </a>
+<a class="flex items-center gap-1 text-on-surface-variant dark:text-on-surface-variant font-label-md text-label-md hover:underline transition-all focus:ring-2 focus:ring-primary rounded" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="attach_money">attach_money</span>
+                        Currency
+                    </a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>
