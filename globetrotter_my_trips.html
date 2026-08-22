@@ -1,0 +1,340 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>My Trips - GlobeTrotter</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Montserrat:wght@500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface": "#f7f9fb",
+                      "tertiary-container": "#301400",
+                      "tertiary": "#000000",
+                      "on-secondary-fixed": "#001e2c",
+                      "on-background": "#191c1e",
+                      "on-primary": "#ffffff",
+                      "on-tertiary-container": "#c96b14",
+                      "on-primary-fixed": "#131b2e",
+                      "on-secondary-container": "#004d6a",
+                      "outline": "#76777d",
+                      "background": "#f7f9fb",
+                      "outline-variant": "#c6c6cd",
+                      "surface-container-high": "#e6e8ea",
+                      "on-secondary": "#ffffff",
+                      "on-tertiary-fixed-variant": "#713700",
+                      "error": "#ba1a1a",
+                      "on-primary-container": "#7c839b",
+                      "on-error-container": "#93000a",
+                      "surface-container-highest": "#e0e3e5",
+                      "primary-fixed": "#dae2fd",
+                      "secondary": "#00668a",
+                      "primary": "#000000",
+                      "surface-container-lowest": "#ffffff",
+                      "inverse-surface": "#2d3133",
+                      "secondary-fixed-dim": "#7bd0ff",
+                      "inverse-on-surface": "#eff1f3",
+                      "on-secondary-fixed-variant": "#004c69",
+                      "surface-variant": "#e0e3e5",
+                      "inverse-primary": "#bec6e0",
+                      "surface-container-low": "#f2f4f6",
+                      "secondary-container": "#40c2fd",
+                      "on-primary-fixed-variant": "#3f465c",
+                      "tertiary-fixed-dim": "#ffb783",
+                      "on-tertiary-fixed": "#301400",
+                      "surface-container": "#eceef0",
+                      "on-error": "#ffffff",
+                      "surface-bright": "#f7f9fb",
+                      "on-tertiary": "#ffffff",
+                      "surface-dim": "#d8dadc",
+                      "primary-fixed-dim": "#bec6e0",
+                      "error-container": "#ffdad6",
+                      "tertiary-fixed": "#ffdcc5",
+                      "primary-container": "#131b2e",
+                      "on-surface-variant": "#45464d",
+                      "secondary-fixed": "#c4e7ff",
+                      "surface-tint": "#565e74",
+                      "on-surface": "#191c1e"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "sm": "16px",
+                      "xs": "8px",
+                      "md": "24px",
+                      "margin-mobile": "16px",
+                      "gutter": "24px",
+                      "lg": "48px",
+                      "base": "4px",
+                      "xl": "80px",
+                      "margin-desktop": "64px"
+              },
+              "fontFamily": {
+                      "headline-sm": [
+                              "Montserrat"
+                      ],
+                      "headline-md": [
+                              "Montserrat"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "display-lg-mobile": [
+                              "Montserrat"
+                      ],
+                      "label-bold": [
+                              "Inter"
+                      ],
+                      "label-caps": [
+                              "Inter"
+                      ],
+                      "display-lg": [
+                              "Montserrat"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "body-sm": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "headline-sm": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg-mobile": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-bold": [
+                              "14px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-caps": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.1em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        body {
+            background-color: #f7f9fb; /* surface */
+            color: #191c1e; /* on-surface */
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0px 10px 15px -3px rgba(15, 23, 42, 0.08);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface antialiased min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="sticky top-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop py-base max-w-[1440px] mx-auto bg-surface dark:bg-on-background border-b border-outline-variant dark:border-outline">
+<div class="flex items-center gap-md">
+<a class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed" href="#">GlobeTrotter</a>
+<nav class="hidden md:flex gap-sm">
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors font-body-md text-body-md" href="SCREEN_17">Explore</a>
+<a class="text-secondary dark:text-secondary-fixed-dim border-b-2 border-secondary dark:border-secondary-fixed-dim pb-1 font-body-md text-body-md opacity-80 transition-opacity duration-200" href="SCREEN_22">Planner</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors font-body-md text-body-md" href="#">Community</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors font-body-md text-body-md" href="#">Deals</a>
+</nav>
+</div>
+<div class="flex items-center gap-sm">
+<button class="hidden md:flex bg-on-tertiary-container text-on-primary px-4 py-2 rounded-lg font-label-bold text-label-bold hover:bg-opacity-90 transition">Create Trip</button>
+<button aria-label="Notifications" class="text-on-surface-variant hover:text-secondary transition-colors" onclick="window.location.href='SCREEN_4'">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<img alt="User profile avatar" class="w-10 h-10 rounded-full object-cover border-2 border-surface-container-highest cursor-pointer" data-alt="A detailed headshot of a young professional smiling warmly, set against a clean, light-grey background. The lighting is soft and flattering, highlighting a friendly and approachable demeanor. Modern corporate style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDH0FUsS3yytPVttCvw0tymAhJJ5O9QP2dg1A0gsKLaXzS_hYsl6Pmp5d0KfmdW3_D_jQeIOl7TzdLu4QMUcqY6oCXiS_gbNQ7loCZz7ruIdhVBn-uyp75HNlJWIqOXE-DHBpJTGftkyZXccIfz-vwLAR_LeSL_iv1ZQRnggqEqUtdkXZ6EnLkqwBDssUMm-_HPwxocCXP9abbYzBHCqxLmnFOu_vROM_-_WeFvOHlDzwS7mmDk3sa4EQ" onclick="window.location.href='SCREEN_4'">
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow w-full max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop py-lg flex flex-col gap-lg">
+<!-- Header Section -->
+<section class="flex flex-col md:flex-row justify-between items-start md:items-end gap-sm">
+<div>
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-background mb-xs">My Trips</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Manage and plan your upcoming adventures.</p>
+</div>
+<button class="bg-on-tertiary-container text-on-primary px-6 py-3 rounded-lg font-label-bold text-label-bold flex items-center gap-2 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1" onclick="window.location.href='SCREEN_22'">
+<span class="material-symbols-outlined">add</span>
+                Plan a New Trip
+            </button>
+</section>
+<!-- Filters -->
+<section class="flex gap-sm border-b border-outline-variant pb-2">
+<button class="px-4 py-2 rounded-full bg-secondary bg-opacity-10 text-secondary font-label-bold text-label-bold border-2 border-secondary">All Trips</button>
+<button class="px-4 py-2 rounded-full text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-label-bold text-label-bold transition">Upcoming</button>
+<button class="px-4 py-2 rounded-full text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-label-bold text-label-bold transition">Past</button>
+<button class="px-4 py-2 rounded-full text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-label-bold text-label-bold transition">Drafts</button>
+</section>
+<!-- Trip Cards Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Card 1: Upcoming -->
+<article class="bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant overflow-hidden flex flex-col group hover:shadow-md transition-shadow duration-300 relative">
+<div class="h-48 relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A breathtaking panoramic view of a pristine alpine lake surrounded by jagged, snow-dusted mountains at sunrise. Two people in a small wooden rowboat gently paddle across the glassy water, which perfectly reflects the majestic peaks and warm dawn sky. The scene evokes tranquility and grand adventure." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBK68Rww_0RaEf8FzT_wf0jpldYZfJnxTuVeLhnMyzgf6Hq-vwp13GhNc6Ty50uQuNxLb3hOJwGy9wOcuerZrvjTTrikobzK2kKhaOu6J96mOnWdRmpdn4bzVm4T_iv-i8zi9BSB-96TUxglIHQjUMu1NR14tjTzA061QZi9bOSPYFiLWMfvczJS2mDL8m5QHjOhHHaq-0y3ch0YPhlZh-b2Fac4Zporp8DSuEyENly8NMTnKkZToZBWw">
+<div class="absolute top-4 left-4 bg-secondary bg-opacity-90 text-on-primary px-3 py-1 rounded-full font-label-caps text-label-caps backdrop-blur-sm shadow-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">event</span> Upcoming
+                    </div>
+</div>
+<div class="p-md flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-xs">
+<h2 class="font-headline-sm text-headline-sm text-on-background">Alpine Escape</h2>
+<button aria-label="More options" class="text-on-surface-variant hover:text-on-surface">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1 mb-xs">
+<span class="material-symbols-outlined text-[16px]">calendar_today</span> Dec 12 - Dec 20, 2024
+                    </p>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1 mb-md">
+<span class="material-symbols-outlined text-[16px]">pin_drop</span> 3 Cities (Italy, Switzerland)
+                    </p>
+<div class="mt-auto flex gap-sm border-t border-outline-variant pt-sm">
+<button class="flex-1 text-secondary font-label-bold text-label-bold hover:bg-secondary hover:bg-opacity-10 py-2 rounded transition text-center" onclick="window.location.href='SCREEN_19'">View Details</button>
+<button aria-label="Edit Trip" class="text-on-surface-variant hover:bg-surface-container py-2 px-3 rounded transition">
+<span class="material-symbols-outlined">edit</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Card 2: Draft -->
+<article class="bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant overflow-hidden flex flex-col group hover:shadow-md transition-shadow duration-300 relative">
+<div class="h-48 relative overflow-hidden bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-outline text-6xl opacity-50">landscape</span>
+<div class="absolute top-4 left-4 bg-surface-variant text-on-surface-variant px-3 py-1 rounded-full font-label-caps text-label-caps shadow-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">edit_document</span> Draft
+                    </div>
+</div>
+<div class="p-md flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-xs">
+<h2 class="font-headline-sm text-headline-sm text-on-background">Japan Spring Tour</h2>
+<button aria-label="More options" class="text-on-surface-variant hover:text-on-surface">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1 mb-xs">
+<span class="material-symbols-outlined text-[16px]">calendar_today</span> Apr 5 - Apr 18, 2025
+                    </p>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1 mb-md">
+<span class="material-symbols-outlined text-[16px]">pin_drop</span> Tokyo, Kyoto, Osaka
+                    </p>
+<div class="mt-auto flex gap-sm border-t border-outline-variant pt-sm">
+<button class="flex-1 text-secondary font-label-bold text-label-bold hover:bg-secondary hover:bg-opacity-10 py-2 rounded transition text-center" onclick="window.location.href='SCREEN_19'">Continue Planning</button>
+<button aria-label="Delete Draft" class="text-error hover:bg-error-container hover:text-on-error-container py-2 px-3 rounded transition">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Card 3: Completed -->
+<article class="bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant overflow-hidden flex flex-col group hover:shadow-md transition-shadow duration-300 relative opacity-80 hover:opacity-100">
+<div class="h-48 relative overflow-hidden">
+<img class="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 transition-all duration-500" data-alt="A sun-drenched cobblestone street in a historic coastal town, flanked by whitewashed buildings with vibrant blue accents. Lush pink bougainvillea spills over the balconies. The sparkling Mediterranean sea is visible at the end of the narrow alleyway. Warm, inviting, and nostalgic travel aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2HjJIurs5Ue5ZwBtntDBIJhU_UdIrA52ZEYNyDvsAmeeOMCr0t-vyB3b-Yo4aMmY19ZeGHyeyyf6VE0NpfN1-DY8WHHpK9e_QKCYvIQrdagjA-C2qMB5nfefvSTQGJjm332pzUVeWz4sUsQvu9HXdmeLL8ZtsAOtH7SmoFSkDFd0-HhIK2ODV-VCVhwk3BS1VruYP623aFKsSEZYByXtDYByQVOp1hPyLdJO5Rd7r6f8oXiAotA3DAg">
+<div class="absolute top-4 left-4 bg-surface bg-opacity-90 text-on-surface px-3 py-1 rounded-full font-label-caps text-label-caps backdrop-blur-sm shadow-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> Completed
+                    </div>
+</div>
+<div class="p-md flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-xs">
+<h2 class="font-headline-sm text-headline-sm text-on-background">Greek Isles Retreat</h2>
+<button aria-label="More options" class="text-on-surface-variant hover:text-on-surface">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1 mb-xs">
+<span class="material-symbols-outlined text-[16px]">calendar_today</span> Sep 1 - Sep 10, 2023
+                    </p>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1 mb-md">
+<span class="material-symbols-outlined text-[16px]">pin_drop</span> Santorini, Mykonos
+                    </p>
+<div class="mt-auto flex gap-sm border-t border-outline-variant pt-sm">
+<button class="flex-1 text-on-surface font-label-bold text-label-bold border border-outline hover:bg-surface-container py-2 rounded transition text-center">View Memories</button>
+</div>
+</div>
+</article>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-lg px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-gutter max-w-[1440px] mx-auto bg-surface-container-low dark:bg-on-background border-t border-outline-variant dark:border-outline mt-auto">
+<div>
+<div class="font-headline-sm text-headline-sm font-bold text-primary dark:text-primary-fixed mb-sm">GlobeTrotter</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant dark:text-surface-variant">© 2024 GlobeTrotter. All rights reserved.</p>
+</div>
+<div class="flex flex-col gap-xs">
+<a class="font-body-sm text-body-sm text-on-surface-variant dark:text-surface-variant hover:underline hover:text-secondary dark:hover:text-secondary-fixed-dim transition-all duration-200" href="#">Destinations</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant dark:text-surface-variant hover:underline hover:text-secondary dark:hover:text-secondary-fixed-dim transition-all duration-200" href="#">Support</a>
+</div>
+<div class="flex flex-col gap-xs">
+<a class="font-body-sm text-body-sm text-on-surface-variant dark:text-surface-variant hover:underline hover:text-secondary dark:hover:text-secondary-fixed-dim transition-all duration-200" href="#">Privacy Policy</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant dark:text-surface-variant hover:underline hover:text-secondary dark:hover:text-secondary-fixed-dim transition-all duration-200" href="#">Terms of Service</a>
+</div>
+</footer>
+
+
+<script src="app.js"></script></body></html>

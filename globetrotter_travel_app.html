@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>GlobeTrotter - Travel Planning</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Montserrat:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-variant": "#e0e3e5",
+                        "tertiary-fixed-dim": "#ffb783",
+                        "inverse-primary": "#bec6e0",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed-dim": "#bec6e0",
+                        "on-surface-variant": "#45464d",
+                        "error-container": "#ffdad6",
+                        "on-background": "#191c1e",
+                        "error": "#ba1a1a",
+                        "surface": "#f7f9fb",
+                        "primary-container": "#131b2e",
+                        "on-secondary-fixed": "#001e2c",
+                        "tertiary": "#000000",
+                        "on-secondary-container": "#004d6a",
+                        "surface-container-high": "#e6e8ea",
+                        "outline-variant": "#c6c6cd",
+                        "secondary": "#00668a",
+                        "primary-fixed": "#dae2fd",
+                        "surface-bright": "#f7f9fb",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "secondary-fixed-dim": "#7bd0ff",
+                        "background": "#f7f9fb",
+                        "inverse-surface": "#2d3133",
+                        "primary": "#000000",
+                        "on-tertiary-container": "#c96b14",
+                        "on-error": "#ffffff",
+                        "surface-dim": "#d8dadc",
+                        "on-surface": "#191c1e",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#713700",
+                        "surface-container": "#eceef0",
+                        "on-primary-container": "#7c839b",
+                        "on-primary-fixed": "#131b2e",
+                        "secondary-fixed": "#c4e7ff",
+                        "inverse-on-surface": "#eff1f3",
+                        "secondary-container": "#40c2fd",
+                        "surface-tint": "#565e74",
+                        "outline": "#76777d",
+                        "surface-container-low": "#f2f4f6",
+                        "on-secondary-fixed-variant": "#004c69",
+                        "on-tertiary-fixed": "#301400",
+                        "tertiary-fixed": "#ffdcc5",
+                        "surface-container-highest": "#e0e3e5",
+                        "tertiary-container": "#301400",
+                        "on-primary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "xl": "80px",
+                        "sm": "16px",
+                        "gutter": "24px",
+                        "md": "24px",
+                        "base": "4px",
+                        "xs": "8px",
+                        "lg": "48px",
+                        "margin-desktop": "64px"
+                    },
+                    "fontFamily": {
+                        "label-bold": ["Inter"],
+                        "display-lg-mobile": ["Montserrat"],
+                        "display-lg": ["Montserrat"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Montserrat"],
+                        "body-lg": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "headline-sm": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "label-bold": ["14px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<nav class="bg-surface dark:bg-background w-full top-0 sticky shadow-sm z-50">
+<div class="flex justify-between items-center h-16 px-margin-desktop max-w-[1440px] mx-auto">
+<div class="flex items-center gap-4">
+<img alt="GlobeTrotter Logo" class="h-8 w-8 object-contain rounded" src="https://lh3.googleusercontent.com/aida/AEtjO1WgzWuHvBhtbYAAWEgdGKHA3IUYEeRfjwZIdKxqNUGAdVzu4ruU29jdc0e2BVPRwKOiimATSCuOa_qm-frMv-8odsuRXsTrUvxB1n98ARWDoHTXyCmsqekJVg01b0UvvWHYWfGMJYtaUnMoEX-NF4o96M6AlYqs30eseSarxBEPEoisnTeauTOjzKacCEhCzD3Uh80Z2ObRmr62wjgq4p3i11z7WYZgvs9pRlP61-TlmBDhDugOLQiLeN4S"/>
+<span class="text-headline-md font-headline-md font-bold text-primary dark:text-on-primary-fixed">GlobeTrotter</span>
+</div>
+<div class="hidden md:flex gap-gutter items-center">
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed font-label-bold text-label-bold hover:opacity-80 transition-opacity transition-all duration-200 active:scale-95" href="#">Explore</a>
+<a class="text-primary dark:text-primary-fixed border-b-2 border-primary dark:border-primary-fixed pb-1 font-label-bold text-label-bold hover:opacity-80 transition-opacity transition-all duration-200 active:scale-95" href="#">Planner</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed font-label-bold text-label-bold hover:opacity-80 transition-opacity transition-all duration-200 active:scale-95" href="#">Community</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed font-label-bold text-label-bold hover:opacity-80 transition-opacity transition-all duration-200 active:scale-95" href="#">Deals</a>
+</div>
+<div class="flex gap-4 items-center">
+<button class="font-label-bold text-label-bold text-on-surface-variant hover:text-primary transition-colors">Log In</button>
+<button class="bg-primary text-on-primary font-label-bold text-label-bold px-4 py-2 rounded-lg hover:opacity-90 transition-opacity">Register</button>
+</div>
+</div>
+</nav>
+<!-- Hero Section with Slideshow Placeholder -->
+<main class="flex-grow">
+<section class="relative w-full h-[80vh] min-h-[600px] flex items-center justify-center overflow-hidden">
+<!-- Background Image Slide -->
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-black/40 z-10"></div>
+<img alt="Stunning travel destination, high-impact imagery for GlobeTrotter" class="w-full h-full object-cover object-center" src="https://lh3.googleusercontent.com/aida/AEtjO1V-oCLCpOwRnEAmf0TbTyrjUAqRkG2IlPNnx2Ma0-27U9EltNGPgrBjf12nL_siGta92ia5pDKydqmEJXt2VL-vl2WakWyOvbGJ4YiRVFQH5uwt-JPbXwNJbgCfKdqzOxeuyJJoKTpqtRtuN-uSmSHr9jitwmYB46DFQMFRDlrSWze2KzEWb-gyll9-v29e24MivXfSKgZwlgvI5dqf1RwEpHzks4SYtr8eL80DQ6t1Hmos51trdjTKLLQ"/>
+</div>
+<!-- Content -->
+<div class="relative z-20 text-center px-margin-mobile md:px-margin-desktop max-w-4xl mx-auto flex flex-col items-center gap-md">
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-primary">Empowering Personalized Travel Planning</h1>
+<p class="font-body-lg text-body-lg text-on-primary/90 max-w-2xl">
+                    Discover breathtaking destinations, craft flawless itineraries, and embark on journeys tailored exactly to your sense of adventure.
+                </p>
+<button class="mt-sm bg-[#ff6b6b] text-white font-label-bold text-label-bold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
+                    Start Planning
+                </button>
+</div>
+</section>
+<!-- Feature Highlights Bento Grid -->
+<section class="py-xl px-margin-mobile md:px-margin-desktop max-w-[1440px] mx-auto">
+<div class="text-center mb-lg">
+<h2 class="font-headline-md text-headline-md text-primary mb-sm">Design Your Perfect Journey</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xl mx-auto">Our intelligent planning tools take the stress out of travel, letting you focus on the experience.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-md border border-outline-variant shadow-sm hover:shadow-[0px_10px_15px_-3px_rgba(15,23,42,0.08)] transition-all flex flex-col gap-sm">
+<span class="material-symbols-outlined text-secondary text-4xl" style="font-variation-settings: 'FILL' 1;">map</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Interactive Maps</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Visualize your route and discover hidden gems along the way with our dynamic routing.</p>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-md border border-outline-variant shadow-sm hover:shadow-[0px_10px_15px_-3px_rgba(15,23,42,0.08)] transition-all flex flex-col gap-sm">
+<span class="material-symbols-outlined text-secondary text-4xl" style="font-variation-settings: 'FILL' 1;">calendar_month</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Smart Itineraries</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Drag and drop activities into a seamless schedule that adapts to your pacing.</p>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest rounded-xl p-md border border-outline-variant shadow-sm hover:shadow-[0px_10px_15px_-3px_rgba(15,23,42,0.08)] transition-all flex flex-col gap-sm">
+<span class="material-symbols-outlined text-secondary text-4xl" style="font-variation-settings: 'FILL' 1;">group</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Collaborative Planning</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Invite friends and family to suggest ideas, vote on activities, and finalize plans together.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container dark:bg-surface-container-high border-t border-outline-variant w-full mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-center py-lg px-margin-desktop max-w-[1440px] mx-auto gap-md">
+<div class="flex items-center gap-2">
+<span class="text-headline-sm font-headline-sm font-bold text-primary dark:text-on-primary-fixed">GlobeTrotter</span>
+</div>
+<div class="flex flex-wrap justify-center gap-gutter">
+<a class="font-body-sm text-body-sm font-label-caps text-label-caps text-on-surface-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-200" href="#">Destinations</a>
+<a class="font-body-sm text-body-sm font-label-caps text-label-caps text-on-surface-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-200" href="#">Itineraries</a>
+<a class="font-body-sm text-body-sm font-label-caps text-label-caps text-on-surface-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-200" href="#">Travel Tips</a>
+<a class="font-body-sm text-body-sm font-label-caps text-label-caps text-on-surface-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-200" href="#">Support</a>
+<a class="font-body-sm text-body-sm font-label-caps text-label-caps text-on-surface-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-200" href="#">Privacy Policy</a>
+</div>
+<div class="font-body-sm text-body-sm font-label-caps text-label-caps text-on-surface dark:text-on-surface-variant text-center md:text-right text-xs">
+                © 2024 GlobeTrotter. All rights reserved. Your journey begins here.
+            </div>
+</div>
+</footer>
+<script src="app.js"></script></body></html>

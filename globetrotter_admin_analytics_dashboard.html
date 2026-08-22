@@ -1,0 +1,513 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>GlobeTrotter Admin Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Montserrat:wght@600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed": "#301400",
+                        "surface-container-high": "#e6e8ea",
+                        "inverse-on-surface": "#eff1f3",
+                        "surface-tint": "#565e74",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-secondary-fixed": "#001e2c",
+                        "surface-bright": "#f7f9fb",
+                        "on-secondary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed-variant": "#713700",
+                        "secondary-fixed-dim": "#7bd0ff",
+                        "on-secondary-container": "#004d6a",
+                        "surface-variant": "#e0e3e5",
+                        "tertiary-container": "#301400",
+                        "secondary-container": "#40c2fd",
+                        "tertiary": "#000000",
+                        "error": "#ba1a1a",
+                        "on-error-container": "#93000a",
+                        "on-tertiary": "#ffffff",
+                        "outline-variant": "#c6c6cd",
+                        "background": "#f7f9fb",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "surface-container": "#eceef0",
+                        "primary-fixed-dim": "#bec6e0",
+                        "on-surface": "#191c1e",
+                        "on-secondary-fixed-variant": "#004c69",
+                        "surface-container-low": "#f2f4f6",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed": "#131b2e",
+                        "primary": "#000000",
+                        "surface-dim": "#d8dadc",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb783",
+                        "secondary-fixed": "#c4e7ff",
+                        "on-primary": "#ffffff",
+                        "on-surface-variant": "#45464d",
+                        "inverse-primary": "#bec6e0",
+                        "tertiary-fixed": "#ffdcc5",
+                        "outline": "#76777d",
+                        "primary-fixed": "#dae2fd",
+                        "primary-container": "#131b2e",
+                        "on-background": "#191c1e",
+                        "on-primary-container": "#7c839b",
+                        "surface": "#f7f9fb",
+                        "on-tertiary-container": "#c96b14",
+                        "inverse-surface": "#2d3133",
+                        "secondary": "#00668a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "4px",
+                        "lg": "48px",
+                        "xs": "8px",
+                        "margin-mobile": "16px",
+                        "md": "24px",
+                        "margin-desktop": "64px",
+                        "sm": "16px",
+                        "gutter": "24px",
+                        "xl": "80px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "label-bold": ["Inter"],
+                        "display-lg": ["Montserrat"],
+                        "headline-sm": ["Montserrat"],
+                        "headline-md": ["Montserrat"],
+                        "label-caps": ["Inter"],
+                        "display-lg-mobile": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "label-bold": ["14px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .chart-grid {
+            background-image: linear-gradient(to right, #e2e8f0 1px, transparent 1px),
+                              linear-gradient(to bottom, #e2e8f0 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background flex h-screen overflow-hidden">
+<!-- SideNavBar Component -->
+<nav class="hidden md:flex flex-col h-full py-md px-sm border-r border-outline-variant dark:border-outline bg-surface dark:bg-inverse-surface fixed left-0 top-0 h-screen w-[320px] z-20">
+<div class="mb-lg px-sm">
+<h1 class="font-display-lg text-display-lg font-bold text-primary dark:text-inverse-primary"><a href="{{DATA:SCREEN:SCREEN_2}}" class="hover:opacity-80 transition-opacity">GlobeTrotter</a></h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-xs">Admin Console</p>
+</div>
+<div class="flex-1 space-y-xs">
+<a class="flex items-center gap-sm px-sm py-xs rounded text-secondary dark:text-secondary-fixed-dim font-bold border-r-2 border-secondary dark:border-secondary-fixed-dim bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="font-body-md text-body-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-sm px-sm py-xs rounded text-on-surface-variant dark:text-surface-variant hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors opacity-80 duration-150" href="#">
+<span class="material-symbols-outlined">explore</span>
+<span class="font-body-md text-body-md">Trips</span>
+</a>
+<a class="flex items-center gap-sm px-sm py-xs rounded text-on-surface-variant dark:text-surface-variant hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors opacity-80 duration-150" href="{{DATA:SCREEN:SCREEN_2}}">
+<span class="material-symbols-outlined">group</span>
+<span class="font-body-md text-body-md">Users</span>
+</a>
+<a class="flex items-center gap-sm px-sm py-xs rounded text-on-surface-variant dark:text-surface-variant hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors opacity-80 duration-150" href="#">
+<span class="material-symbols-outlined">monitoring</span>
+<span class="font-body-md text-body-md">Analytics</span>
+</a>
+<a class="flex items-center gap-sm px-sm py-xs rounded text-on-surface-variant dark:text-surface-variant hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors opacity-80 duration-150" href="{{DATA:SCREEN:SCREEN_2}}">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-md text-body-md">Settings</span>
+</a>
+</div>
+<div class="mt-auto pt-md space-y-sm">
+<button class="w-full bg-secondary text-on-secondary font-label-bold py-xs px-sm rounded hover:opacity-90 transition-opacity">
+                New Report
+            </button>
+<div class="flex items-center gap-sm px-sm py-xs pt-md border-t border-outline-variant">
+<img class="w-10 h-10 rounded-full object-cover border border-outline-variant" data-alt="A high-quality, professional corporate headshot of a smiling administrative professional in a bright, modern office setting. The lighting is soft and flattering, typical of premium corporate photography, set against a neutral, slightly out-of-focus background. The mood is approachable yet authoritative, fitting a modern travel admin dashboard context." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4xl_Rac1RV42SEbaRX6KRI7U2ok7Mn-WiOLUpTyP6Bl87QW53BEoa214Xq_4T38spjvdH1Xt1JMsbtZ-lMTBuJYvLMNonNYsaoZN2vmazFf5XT3Q_5cAuE-6_41AAwg44rd8Pyjn81sMit9quugyi14AQB09mog2fTi35TkCpE2IMxvvpCB3ypw7Iv8BzDsuiTekLWrZhoTgtAj_NJnfCst4achX2VgUFjnWN_a1f2-xFHhciPriAYQ">
+<div class="flex-1 min-w-0">
+<p class="font-label-bold text-label-bold truncate">GlobeTrotter Admin</p>
+</div>
+</div>
+<div class="space-y-xs mt-sm">
+<a class="flex items-center gap-sm px-sm py-xs rounded text-on-surface-variant dark:text-surface-variant hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors opacity-80 duration-150" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-body-sm text-body-sm">Support</span>
+</a>
+<a class="flex items-center gap-sm px-sm py-xs rounded text-on-surface-variant dark:text-surface-variant hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors opacity-80 duration-150" href="{{DATA:SCREEN:SCREEN_30}}">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-body-sm text-body-sm">Logout</span>
+</a>
+</div>
+</div>
+</nav>
+<!-- Main Content Wrapper -->
+<div class="flex-1 flex flex-col md:ml-[320px] w-full max-w-[calc(1440px-320px)] h-screen overflow-hidden">
+<!-- TopAppBar Component -->
+<header class="flex justify-between items-center w-full px-margin-desktop h-16 bg-surface dark:bg-inverse-surface border-b border-outline-variant dark:border-outline z-10 shrink-0">
+<div class="flex items-center gap-md">
+<h2 class="font-headline-md text-headline-md font-bold text-primary dark:text-inverse-primary hidden md:block">GlobeTrotter Admin</h2>
+<h2 class="font-headline-md text-headline-md font-bold text-primary dark:text-inverse-primary md:hidden">GlobeTrotter Admin</h2>
+<nav class="hidden lg:flex gap-md ml-md">
+<a class="font-label-bold text-label-bold text-primary dark:text-inverse-primary border-b-2 border-primary dark:border-inverse-primary pb-1 transition-all duration-200" href="#">Overview</a>
+<a class="font-label-bold text-label-bold text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-all duration-200" href="#">Regional</a>
+<a class="font-label-bold text-label-bold text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-all duration-200" href="#">Growth</a>
+</nav>
+</div>
+<div class="flex items-center gap-sm">
+<button class="text-on-surface-variant hover:text-primary transition-colors p-xs rounded-full hover:bg-surface-container">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors p-xs rounded-full hover:bg-surface-container">
+<span class="material-symbols-outlined">dark_mode</span>
+</button>
+<img class="w-8 h-8 rounded-full object-cover ml-xs border border-outline-variant" data-alt="A high-quality, professional corporate headshot of a smiling administrative professional in a bright, modern office setting. The lighting is soft and flattering, typical of premium corporate photography, set against a neutral, slightly out-of-focus background. The mood is approachable yet authoritative, fitting a modern travel admin dashboard context." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXBAF9u9o1CFbO3wlwyp6CsQPvB8KWtnt1j7OjgDGN3eFCo2kMUEa5ny5MqIF2p-cSHttZft45jzbdqXsrcGUG6SEmDgv6suApanxO3gQ1pgZ2xbjIia5ZHFByz-OQXvkpFFw8-Wtcba_jgxxqR-7aj2-7vFoim9hZdCTK9QKj4ZiHckvl2hjePWpSCjobsuYvdjtdxYTIepz_TiKFAkuNPHNWY7u9ANC1GCaYzgtsvqoinz3__JcB1Q">
+</div>
+</header>
+<!-- Scrollable Dashboard Content -->
+<main class="flex-1 overflow-y-auto p-margin-mobile md:p-margin-desktop bg-background space-y-lg pb-xl">
+<div class="flex justify-between items-end mb-md">
+<div>
+<h1 class="font-display-lg text-display-lg md:text-display-lg font-bold text-primary">Dashboard Overview</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-xs">Welcome back. Here's what's happening today.</p>
+</div>
+<div class="hidden sm:flex gap-sm">
+<button class="border border-secondary text-secondary font-label-bold py-xs px-sm rounded hover:bg-secondary/5 transition-colors">Export Report</button>
+<button class="bg-primary text-on-primary font-label-bold py-xs px-sm rounded hover:opacity-90 transition-opacity">Refresh Data</button>
+</div>
+</div>
+<!-- 1. Key Metrics (KPI Cards) - Bento Grid Style -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-md">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex flex-col gap-sm shadow-sm relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-sm opacity-20 group-hover:opacity-40 transition-opacity">
+<span class="material-symbols-outlined text-4xl">group</span>
+</div>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase">Total Users</p>
+<div class="flex items-baseline gap-xs">
+<span class="font-display-lg text-display-lg font-bold text-primary">12,450</span>
+</div>
+<div class="flex items-center gap-1 text-secondary font-label-bold text-label-bold bg-secondary/10 w-fit px-2 py-1 rounded-full">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+<span class="">+12% this month</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex flex-col gap-sm shadow-sm relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-sm opacity-20 group-hover:opacity-40 transition-opacity">
+<span class="material-symbols-outlined text-4xl">explore</span>
+</div>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase">Active Trips</p>
+<div class="flex items-baseline gap-xs">
+<span class="font-display-lg text-display-lg font-bold text-primary">3,210</span>
+</div>
+<div class="flex items-center gap-1 text-secondary font-label-bold text-label-bold bg-secondary/10 w-fit px-2 py-1 rounded-full">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+<span class="">+5% this month</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex flex-col gap-sm shadow-sm relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-sm opacity-20 group-hover:opacity-40 transition-opacity">
+<span class="material-symbols-outlined text-4xl">payments</span>
+</div>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase">Total Revenue</p>
+<div class="flex items-baseline gap-xs">
+<span class="font-display-lg text-display-lg font-bold text-primary">$450k</span>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant font-label-bold text-label-bold w-fit px-2 py-1">
+<span class="material-symbols-outlined text-sm">horizontal_rule</span>
+<span class="">Stable</span>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex flex-col gap-sm shadow-sm relative overflow-hidden group bg-gradient-to-br from-surface-container-lowest to-surface-container">
+<div class="absolute top-0 right-0 p-sm opacity-20 group-hover:opacity-40 transition-opacity">
+<span class="material-symbols-outlined text-4xl">receipt_long</span>
+</div>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase">Avg Trip Cost</p>
+<div class="flex items-baseline gap-xs">
+<span class="font-display-lg text-display-lg font-bold text-primary">$2,850</span>
+</div>
+<div class="flex items-center gap-1 text-error font-label-bold text-label-bold bg-error/10 w-fit px-2 py-1 rounded-full">
+<span class="material-symbols-outlined text-sm">trending_down</span>
+<span class="">-2% this month</span>
+</div>
+</div>
+</section>
+<!-- 2. Analytics Charts Layout -->
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-md">
+<!-- User Growth & Trip Trends (Takes up 2 cols) -->
+<div class="lg:col-span-2 space-y-md">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md shadow-sm">
+<div class="flex justify-between items-center mb-md">
+<h3 class="font-headline-sm text-headline-sm font-bold text-primary">Growth &amp; Trends</h3>
+<select class="border-outline-variant rounded-md font-body-sm text-body-sm text-on-surface-variant focus:ring-secondary focus:border-secondary">
+<option>Last 6 Months</option>
+<option>This Year</option>
+</select>
+</div>
+<!-- Pseudo Chart Area -->
+<div class="h-64 w-full relative chart-grid rounded-lg border border-outline-variant/50 flex items-end px-4 pt-8 pb-4 gap-2">
+<!-- Y Axis Labels -->
+<div class="absolute left-0 top-0 h-full flex flex-col justify-between py-4 pl-2 text-xs text-on-surface-variant font-label-caps">
+<span class="">10k</span>
+<span class="">7.5k</span>
+<span class="">5k</span>
+<span class="">2.5k</span>
+<span class="">0</span>
+</div>
+<!-- Bars (Trip Creation) & Line Points (User Growth) Simulation -->
+<div class="flex-1 flex items-end justify-around h-full ml-8 relative z-10">
+<div class="w-1/12 bg-secondary/80 rounded-t-sm h-[30%] relative group cursor-pointer hover:bg-secondary transition-colors">
+<div class="absolute -top-3 left-1/2 -translate-x-1/2 w-3 h-3 bg-primary rounded-full border-2 border-white z-20 shadow-sm"></div>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-xs font-label-bold text-on-surface-variant">Jan</span>
+</div>
+<div class="w-1/12 bg-secondary/80 rounded-t-sm h-[45%] relative group cursor-pointer hover:bg-secondary transition-colors">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 w-3 h-3 bg-primary rounded-full border-2 border-white z-20 shadow-sm"></div>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-xs font-label-bold text-on-surface-variant">Feb</span>
+</div>
+<div class="w-1/12 bg-secondary/80 rounded-t-sm h-[40%] relative group cursor-pointer hover:bg-secondary transition-colors">
+<div class="absolute -top-1 left-1/2 -translate-x-1/2 w-3 h-3 bg-primary rounded-full border-2 border-white z-20 shadow-sm"></div>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-xs font-label-bold text-on-surface-variant">Mar</span>
+</div>
+<div class="w-1/12 bg-secondary/80 rounded-t-sm h-[60%] relative group cursor-pointer hover:bg-secondary transition-colors">
+<div class="absolute -top-12 left-1/2 -translate-x-1/2 w-3 h-3 bg-primary rounded-full border-2 border-white z-20 shadow-sm"></div>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-xs font-label-bold text-on-surface-variant">Apr</span>
+</div>
+<div class="w-1/12 bg-secondary/80 rounded-t-sm h-[75%] relative group cursor-pointer hover:bg-secondary transition-colors">
+<div class="absolute -top-4 left-1/2 -translate-x-1/2 w-3 h-3 bg-primary rounded-full border-2 border-white z-20 shadow-sm"></div>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-xs font-label-bold text-on-surface-variant">May</span>
+</div>
+<div class="w-1/12 bg-secondary/80 rounded-t-sm h-[90%] relative group cursor-pointer hover:bg-secondary transition-colors">
+<div class="absolute top-2 left-1/2 -translate-x-1/2 w-3 h-3 bg-primary rounded-full border-2 border-white z-20 shadow-sm"></div>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-xs font-label-bold text-on-surface-variant">Jun</span>
+</div>
+<!-- Fake Line connecting points using a div hack for visual rep -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none">
+<path d="M 40,150 L 120,100 L 200,120 L 280,60 L 360,40 L 440,20" fill="none" stroke="#000000" stroke-dasharray="4" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+<div class="flex justify-center gap-md mt-sm">
+<div class="flex items-center gap-xs"><div class="w-3 h-3 bg-primary rounded-full"></div><span class="font-body-sm text-body-sm">User Growth</span></div>
+<div class="flex items-center gap-xs"><div class="w-3 h-3 bg-secondary rounded-sm"></div><span class="font-body-sm text-body-sm">Trip Volume</span></div>
+</div>
+</div>
+</div>
+<!-- Popular Destinations -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md shadow-sm flex flex-col">
+<h3 class="font-headline-sm text-headline-sm font-bold text-primary mb-md">Top Destinations</h3>
+<div class="flex-1 flex flex-col justify-between space-y-sm">
+<!-- Dest 1 -->
+<div>
+<div class="flex justify-between font-label-bold text-label-bold mb-1">
+<span class="">Tokyo, Japan</span>
+<span class="">24%</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-2">
+<div class="bg-secondary h-2 rounded-full" style="width: 85%"></div>
+</div>
+</div>
+<!-- Dest 2 -->
+<div>
+<div class="flex justify-between font-label-bold text-label-bold mb-1">
+<span class="">Santorini, Greece</span>
+<span class="">18%</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-2">
+<div class="bg-secondary/80 h-2 rounded-full" style="width: 65%"></div>
+</div>
+</div>
+<!-- Dest 3 -->
+<div>
+<div class="flex justify-between font-label-bold text-label-bold mb-1">
+<span class="">Paris, France</span>
+<span class="">15%</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-2">
+<div class="bg-secondary/60 h-2 rounded-full" style="width: 55%"></div>
+</div>
+</div>
+<!-- Dest 4 -->
+<div>
+<div class="flex justify-between font-label-bold text-label-bold mb-1">
+<span class="">Rome, Italy</span>
+<span class="">12%</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-2">
+<div class="bg-secondary/40 h-2 rounded-full" style="width: 45%"></div>
+</div>
+</div>
+<!-- Dest 5 -->
+<div>
+<div class="flex justify-between font-label-bold text-label-bold mb-1">
+<span class="">Swiss Alps</span>
+<span class="">9%</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-2">
+<div class="bg-secondary/20 h-2 rounded-full" style="width: 30%"></div>
+</div>
+</div>
+</div>
+<button class="w-full mt-md text-secondary font-label-bold hover:bg-secondary/5 py-xs rounded transition-colors border border-transparent hover:border-secondary/20">View Full List</button>
+</div>
+</section>
+<!-- 3 & 4. Lower Section Layout -->
+<section class="grid grid-cols-1 lg:grid-cols-4 gap-md">
+<!-- Data Table (Recent Trips) - Takes 3 cols -->
+<div class="lg:col-span-3 bg-surface-container-lowest border border-outline-variant rounded-xl shadow-sm overflow-hidden flex flex-col">
+<div class="p-md border-b border-outline-variant flex justify-between items-center bg-surface-bright">
+<h3 class="font-headline-sm text-headline-sm font-bold text-primary">Recent Trip Activity</h3>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-2 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">search</span>
+<input class="pl-8 py-1 rounded-md border-outline-variant text-body-sm focus:ring-secondary focus:border-secondary w-48" placeholder="Search trips..." type="text">
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container font-label-caps text-label-caps text-on-surface-variant border-b border-outline-variant">
+<th class="py-sm px-md font-semibold">Trip ID</th>
+<th class="py-sm px-md font-semibold">User</th>
+<th class="py-sm px-md font-semibold">Destination</th>
+<th class="py-sm px-md font-semibold">Start Date</th>
+<th class="py-sm px-md font-semibold">Status</th>
+<th class="py-sm px-md font-semibold">Budget</th>
+<th class="py-sm px-md font-semibold text-right">Action</th>
+</tr>
+</thead>
+<tbody class="font-body-sm text-body-sm divide-y divide-outline-variant/50">
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="py-sm px-md font-label-bold text-primary">#TR-8902</td>
+<td class="py-sm px-md flex items-center gap-xs">
+<div class="w-6 h-6 rounded-full bg-secondary/20 flex items-center justify-center text-secondary font-bold text-xs">JD</div>
+<span class="">Jane Doe</span>
+</td>
+<td class="py-sm px-md">Kyoto, Japan</td>
+<td class="py-sm px-md text-on-surface-variant">Oct 12, 2024</td>
+<td class="py-sm px-md">
+<span class="px-2 py-1 rounded-full bg-secondary/10 text-secondary font-label-caps text-[10px]">Planned</span>
+</td>
+<td class="py-sm px-md">$4,200</td>
+<td class="py-sm px-md text-right">
+<button class="text-secondary font-label-bold hover:underline opacity-0 group-hover:opacity-100 transition-opacity">Manage</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="py-sm px-md font-label-bold text-primary">#TR-8901</td>
+<td class="py-sm px-md flex items-center gap-xs">
+<div class="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-xs">AS</div>
+<span class="">Alex Smith</span>
+</td>
+<td class="py-sm px-md">Reykjavik, Iceland</td>
+<td class="py-sm px-md text-on-surface-variant">Sep 28, 2024</td>
+<td class="py-sm px-md">
+<span class="px-2 py-1 rounded-full bg-surface-tint/10 text-surface-tint font-label-caps text-[10px]">Ongoing</span>
+</td>
+<td class="py-sm px-md">$3,150</td>
+<td class="py-sm px-md text-right">
+<button class="text-secondary font-label-bold hover:underline opacity-0 group-hover:opacity-100 transition-opacity">Manage</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="py-sm px-md font-label-bold text-primary">#TR-8900</td>
+<td class="py-sm px-md flex items-center gap-xs">
+<div class="w-6 h-6 rounded-full bg-tertiary-container/20 flex items-center justify-center text-tertiary-container font-bold text-xs">MR</div>
+<span class="">Maria Rossi</span>
+</td>
+<td class="py-sm px-md">Rome, Italy</td>
+<td class="py-sm px-md text-on-surface-variant">Sep 15, 2024</td>
+<td class="py-sm px-md">
+<span class="px-2 py-1 rounded-full bg-outline-variant/30 text-on-surface-variant font-label-caps text-[10px]">Completed</span>
+</td>
+<td class="py-sm px-md">$2,800</td>
+<td class="py-sm px-md text-right">
+<button class="text-secondary font-label-bold hover:underline opacity-0 group-hover:opacity-100 transition-opacity">Manage</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="py-sm px-md font-label-bold text-primary">#TR-8899</td>
+<td class="py-sm px-md flex items-center gap-xs">
+<div class="w-6 h-6 rounded-full bg-secondary/20 flex items-center justify-center text-secondary font-bold text-xs">KC</div>
+<span class="">Kevin Chen</span>
+</td>
+<td class="py-sm px-md">Banff, Canada</td>
+<td class="py-sm px-md text-on-surface-variant">Nov 02, 2024</td>
+<td class="py-sm px-md">
+<span class="px-2 py-1 rounded-full bg-secondary/10 text-secondary font-label-caps text-[10px]">Planned</span>
+</td>
+<td class="py-sm px-md">$1,900</td>
+<td class="py-sm px-md text-right">
+<button class="text-secondary font-label-bold hover:underline opacity-0 group-hover:opacity-100 transition-opacity">Manage</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-xs bg-surface-bright border-t border-outline-variant flex justify-center">
+<button class="text-on-surface-variant font-label-bold hover:text-primary transition-colors text-sm">View All Trips</button>
+</div>
+</div>
+<!-- User Management Snippet - Takes 1 col -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md shadow-sm flex flex-col">
+<div class="flex justify-between items-center mb-md">
+<h3 class="font-headline-sm text-headline-sm font-bold text-primary">New Users</h3>
+<button class="p-1 hover:bg-surface-container rounded-full text-on-surface-variant"><span class="material-symbols-outlined text-sm">more_vert</span></button>
+</div>
+<div class="flex-1 space-y-sm">
+<div class="flex items-center gap-sm p-xs hover:bg-surface-container-low rounded-lg transition-colors cursor-pointer border border-transparent hover:border-outline-variant/30">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="A bright, cheerful portrait of a young female traveler, wearing a casual denim jacket, smiling warmly. The background is slightly blurred showing an outdoor, sunlit city setting, evoking a sense of wanderlust and approachability suitable for a travel app user avatar." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCasCHhXQNkNx00--dswUH7khgMpkgJjNvvluqDD4UOgnMY41ojao2bIlovoosKNjbY4GTzv5rIbF7S0Fw4DhHiZOJQu99oMV-VcuAWapF44DkSPVOTjWwAntkOBtKAMypUWM7mvt0Xb3nWfREQ1zRPMGJTn-GhURFUVgt9IFn17qf2dzLK_YSo_2gzMPVJkMOpl0B99FvRaRDUp7zgrX0bedMPmz1C3Eq8fgie3vGHo3eYWAaShhJlIg">
+<div class="flex-1 min-w-0">
+<p class="font-label-bold text-label-bold text-primary truncate">Sarah Jenkins</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate text-xs">sarah.j@example.com</p>
+</div>
+<span class="material-symbols-outlined text-secondary text-sm">person_add</span>
+</div>
+<div class="flex items-center gap-sm p-xs hover:bg-surface-container-low rounded-lg transition-colors cursor-pointer border border-transparent hover:border-outline-variant/30">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="A professional yet relaxed portrait of a middle-aged male traveler with a slight beard, wearing a casual linen shirt. The lighting is soft natural daylight, with a blurred natural background, suggesting an outdoorsy and adventurous personality for a user profile." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEcfDI07dvFIV1h0OHrufOKxkfI9MnGOdTp0L_NpDY4SRn5Bv-1KDv_3c9JTHeqGQZeiDou0qLTYvnVRcvqKQgrjI8RUKdiqIIF4ryqPhj3axqFvkTn-0DDD7aePDakA_86J2ITWDiHJMhbhKS5zFNogvneWtfWjAscpXG0m6AqXY6ERjqxJ5iaXJqZfPgTs-_Gzk8TbvvXsK_oImAJAONz4l1xIMifPmbgh64cDFSHPbJ7W8CPBww6w">
+<div class="flex-1 min-w-0">
+<p class="font-label-bold text-label-bold text-primary truncate">David Miller</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate text-xs">david.m@example.com</p>
+</div>
+<span class="material-symbols-outlined text-secondary text-sm">person_add</span>
+</div>
+<div class="flex items-center gap-sm p-xs hover:bg-surface-container-low rounded-lg transition-colors cursor-pointer border border-transparent hover:border-outline-variant/30">
+<div class="w-10 h-10 rounded-full bg-tertiary-container/10 flex items-center justify-center text-tertiary-container font-bold border border-tertiary-container/20">EL</div>
+<div class="flex-1 min-w-0">
+<p class="font-label-bold text-label-bold text-primary truncate">Emma Lewis</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate text-xs">emma.l@example.com</p>
+</div>
+<span class="material-symbols-outlined text-secondary text-sm">person_add</span>
+</div>
+</div>
+<button class="w-full mt-md border border-outline-variant text-on-surface-variant font-label-bold hover:bg-surface-container py-xs rounded transition-colors">Manage Users</button>
+</div>
+</section>
+</main>
+</div>
+
+
+<script src="app.js"></script></body></html>

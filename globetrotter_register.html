@@ -1,0 +1,185 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>GlobeTrotter - Register</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Montserrat:wght@600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-variant": "#e0e3e5",
+                        "tertiary-fixed-dim": "#ffb783",
+                        "inverse-primary": "#bec6e0",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed-dim": "#bec6e0",
+                        "on-surface-variant": "#45464d",
+                        "error-container": "#ffdad6",
+                        "on-background": "#191c1e",
+                        "error": "#ba1a1a",
+                        "surface": "#f7f9fb",
+                        "primary-container": "#131b2e",
+                        "on-secondary-fixed": "#001e2c",
+                        "tertiary": "#000000",
+                        "on-secondary-container": "#004d6a",
+                        "surface-container-high": "#e6e8ea",
+                        "outline-variant": "#c6c6cd",
+                        "secondary": "#00668a",
+                        "primary-fixed": "#dae2fd",
+                        "surface-bright": "#f7f9fb",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "secondary-fixed-dim": "#7bd0ff",
+                        "background": "#f7f9fb",
+                        "inverse-surface": "#2d3133",
+                        "primary": "#000000",
+                        "on-tertiary-container": "#c96b14",
+                        "on-error": "#ffffff",
+                        "surface-dim": "#d8dadc",
+                        "on-surface": "#191c1e",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#713700",
+                        "surface-container": "#eceef0",
+                        "on-primary-container": "#7c839b",
+                        "on-primary-fixed": "#131b2e",
+                        "secondary-fixed": "#c4e7ff",
+                        "inverse-on-surface": "#eff1f3",
+                        "secondary-container": "#40c2fd",
+                        "surface-tint": "#565e74",
+                        "outline": "#76777d",
+                        "surface-container-low": "#f2f4f6",
+                        "on-secondary-fixed-variant": "#004c69",
+                        "on-tertiary-fixed": "#301400",
+                        "tertiary-fixed": "#ffdcc5",
+                        "surface-container-highest": "#e0e3e5",
+                        "tertiary-container": "#301400",
+                        "on-primary": "#ffffff"
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.25rem",
+                        lg: "0.5rem",
+                        xl: "0.75rem",
+                        full: "9999px"
+                    },
+                    spacing: {
+                        "margin-mobile": "16px",
+                        xl: "80px",
+                        sm: "16px",
+                        gutter: "24px",
+                        md: "24px",
+                        base: "4px",
+                        xs: "8px",
+                        lg: "48px",
+                        "margin-desktop": "64px"
+                    },
+                    fontFamily: {
+                        "label-bold": ["Inter", "sans-serif"],
+                        "display-lg-mobile": ["Montserrat", "sans-serif"],
+                        "display-lg": ["Montserrat", "sans-serif"],
+                        "body-md": ["Inter", "sans-serif"],
+                        "headline-md": ["Montserrat", "sans-serif"],
+                        "body-lg": ["Inter", "sans-serif"],
+                        "label-caps": ["Inter", "sans-serif"],
+                        "body-sm": ["Inter", "sans-serif"],
+                        "headline-sm": ["Montserrat", "sans-serif"]
+                    },
+                    fontSize: {
+                        "label-bold": ["14px", { lineHeight: "16px", letterSpacing: "0.05em", fontWeight: "600" }],
+                        "display-lg-mobile": ["32px", { lineHeight: "40px", letterSpacing: "-0.02em", fontWeight: "700" }],
+                        "display-lg": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700" }],
+                        "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+                        "headline-md": ["24px", { lineHeight: "32px", fontWeight: "600" }],
+                        "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+                        "label-caps": ["12px", { lineHeight: "16px", letterSpacing: "0.1em", fontWeight: "700" }],
+                        "body-sm": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+                        "headline-sm": ["20px", { lineHeight: "28px", fontWeight: "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex">
+<!-- Left Side: Travel Imagery -->
+<div class="hidden md:block w-1/2 relative bg-surface-variant">
+<div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida/AEtjO1V-oCLCpOwRnEAmf0TbTyrjUAqRkG2IlPNnx2Ma0-27U9EltNGPgrBjf12nL_siGta92ia5pDKydqmEJXt2VL-vl2WakWyOvbGJ4YiRVFQH5uwt-JPbXwNJbgCfKdqzOxeuyJJoKTpqtRtuN-uSmSHr9jitwmYB46DFQMFRDlrSWze2KzEWb-gyll9-v29e24MivXfSKgZwlgvI5dqf1RwEpHzks4SYtr8eL80DQ6t1Hmos51trdjTKLLQ')">
+<div class="absolute inset-0 bg-primary/20 backdrop-blur-[2px]"></div>
+</div>
+<div class="absolute bottom-lg left-margin-desktop right-margin-desktop text-on-primary">
+<h1 class="font-display-lg text-display-lg mb-sm drop-shadow-md">Your journey begins here.</h1>
+<p class="font-body-lg text-body-lg drop-shadow-md opacity-90 max-w-md">Join GlobeTrotter to seamlessly plan your next adventure, discover hidden gems, and connect with a community of modern explorers.</p>
+</div>
+</div>
+<!-- Right Side: Registration Form -->
+<div class="w-full md:w-1/2 flex items-center justify-center p-margin-mobile md:p-margin-desktop bg-surface">
+<div class="w-full max-w-[440px] space-y-lg">
+<!-- Logo & Header -->
+<div class="text-center space-y-md">
+<a href="{{DATA:SCREEN:SCREEN_30}}" class="block">
+<img alt="GlobeTrotter Logo" class="h-16 w-16 mx-auto rounded-full shadow-sm object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1WgzWuHvBhtbYAAWEgdGKHA3IUYEeRfjwZIdKxqNUGAdVzu4ruU29jdc0e2BVPRwKOiimATSCuOa_qm-frMv-8odsuRXsTrUvxB1n98ARWDoHTXyCmsqekJVg01b0UvvWHYWfGMJYtaUnMoEX-NF4o96M6AlYqs30eseSarxBEPEoisnTeauTOjzKacCEhCzD3Uh80Z2ObRmr62wjgq4p3i11z7WYZgvs9pRlP61-TlmBDhDugOLQiLeN4S">
+</a>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Create an Account</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-xs">Start planning your dream itinerary.</p>
+</div>
+</div>
+<!-- Form -->
+<form class="space-y-md">
+<div class="space-y-xs">
+<label class="block font-label-bold text-label-bold text-on-surface" for="fullName">Full Name</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant/70 text-[20px]">person</span>
+<input class="w-full pl-10 pr-4 py-3 bg-surface-container-lowest border border-outline-variant rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary focus:border-secondary transition-colors font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant/50" id="fullName" name="fullName" placeholder="Jane Doe" required="" type="text">
+</div>
+</div>
+<div class="space-y-xs">
+<label class="block font-label-bold text-label-bold text-on-surface" for="email">Email Address</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant/70 text-[20px]">mail</span>
+<input class="w-full pl-10 pr-4 py-3 bg-surface-container-lowest border border-outline-variant rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary focus:border-secondary transition-colors font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant/50" id="email" name="email" placeholder="jane@example.com" required="" type="email">
+</div>
+</div>
+<div class="space-y-xs">
+<label class="block font-label-bold text-label-bold text-on-surface" for="password">Password</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant/70 text-[20px]">lock</span>
+<input class="w-full pl-10 pr-4 py-3 bg-surface-container-lowest border border-outline-variant rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary focus:border-secondary transition-colors font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant/50" id="password" name="password" placeholder="••••••••" required="" type="password">
+</div>
+</div>
+<a href="{{DATA:SCREEN:SCREEN_27}}" class="w-full py-3 px-4 bg-primary text-on-primary rounded-lg font-label-bold text-label-bold hover:opacity-90 transition-opacity active:scale-[0.98] shadow-sm flex items-center justify-center gap-xs">
+                    Create Account
+                    <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</form>
+<!-- Divider -->
+<div class="relative flex items-center py-sm">
+<div class="flex-grow border-t border-outline-variant"></div>
+<span class="flex-shrink-0 mx-4 text-on-surface-variant font-body-sm text-body-sm">or</span>
+<div class="flex-grow border-t border-outline-variant"></div>
+</div>
+<!-- Social Login -->
+<button class="w-full py-3 px-4 bg-surface-container-lowest border border-outline-variant text-on-surface rounded-lg font-label-bold text-label-bold hover:bg-surface-container-low transition-colors active:scale-[0.98] flex items-center justify-center gap-sm" type="button">
+<img alt="Google" class="w-5 h-5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBICiyNKnlAth14XbxbEVP5Usz_rPV_VcB1dV63C0-7LphMN8U1R3L4zMpnOh47jSR-Rj6cysSoMonbT5FTAw7qSMe8oQINUsni63TsyVQnNrYyXJV9xuY2ItREGOrwtAe-ladXCDUNfkBsJOliEgYCjGolu_5qRPXpORFP8Rw0Tcgqdt7tpvTL6OUl7w0JB_oqXiVp-tOj207FIAM1mT_8PlEuEg8ZwEfdSt5b45Pvea7z0w7U-4Z0hQ">
+                Sign up with Google
+            </button>
+<!-- Login Link -->
+<p class="text-center font-body-sm text-body-sm text-on-surface-variant pt-sm">
+                Already have an account? 
+                <a class="font-label-bold text-label-bold text-secondary hover:text-primary transition-colors" href="{{DATA:SCREEN:SCREEN_32}}">Log In</a>
+</p>
+</div>
+</div>
+
+
+<script src="app.js"></script></body></html>

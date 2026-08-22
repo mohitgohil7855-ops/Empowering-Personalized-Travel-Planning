@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Login - GlobeTrotter</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Montserrat:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed": "#001e2c",
+                    "outline": "#76777d",
+                    "on-primary-fixed-variant": "#3f465c",
+                    "secondary-fixed": "#c4e7ff",
+                    "inverse-primary": "#bec6e0",
+                    "surface-container-high": "#e6e8ea",
+                    "on-error-container": "#93000a",
+                    "on-surface": "#191c1e",
+                    "tertiary-fixed-dim": "#ffb783",
+                    "error": "#ba1a1a",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-container": "#40c2fd",
+                    "surface-container-highest": "#e0e3e5",
+                    "surface-dim": "#d8dadc",
+                    "secondary-fixed-dim": "#7bd0ff",
+                    "primary-fixed-dim": "#bec6e0",
+                    "surface-container-low": "#f2f4f6",
+                    "background": "#f7f9fb",
+                    "on-secondary-fixed-variant": "#004c69",
+                    "tertiary-container": "#301400",
+                    "on-surface-variant": "#45464d",
+                    "outline-variant": "#c6c6cd",
+                    "on-secondary": "#ffffff",
+                    "primary-fixed": "#dae2fd",
+                    "tertiary-fixed": "#ffdcc5",
+                    "on-error": "#ffffff",
+                    "surface-variant": "#e0e3e5",
+                    "secondary": "#00668a",
+                    "surface-container": "#eceef0",
+                    "on-tertiary-fixed": "#301400",
+                    "on-primary-fixed": "#131b2e",
+                    "inverse-surface": "#2d3133",
+                    "surface": "#f7f9fb",
+                    "on-tertiary": "#ffffff",
+                    "primary-container": "#131b2e",
+                    "on-primary-container": "#7c839b",
+                    "on-primary": "#ffffff",
+                    "surface-bright": "#f7f9fb",
+                    "surface-tint": "#565e74",
+                    "primary": "#000000",
+                    "on-secondary-container": "#004d6a",
+                    "on-background": "#191c1e",
+                    "tertiary": "#000000",
+                    "inverse-on-surface": "#eff1f3",
+                    "on-tertiary-fixed-variant": "#713700",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-container": "#c96b14"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "64px",
+                    "xs": "8px",
+                    "margin-mobile": "16px",
+                    "sm": "16px",
+                    "xl": "80px",
+                    "gutter": "24px",
+                    "lg": "48px",
+                    "base": "4px",
+                    "md": "24px"
+            },
+            "fontFamily": {
+                    "headline-md": [
+                            "Montserrat"
+                    ],
+                    "headline-sm": [
+                            "Montserrat"
+                    ],
+                    "body-sm": [
+                            "Inter"
+                    ],
+                    "body-lg": [
+                            "Inter"
+                    ],
+                    "body-md": [
+                            "Inter"
+                    ],
+                    "display-lg": [
+                            "Montserrat"
+                    ],
+                    "label-caps": [
+                            "Inter"
+                    ],
+                    "display-lg-mobile": [
+                            "Montserrat"
+                    ],
+                    "label-bold": [
+                            "Inter"
+                    ]
+            },
+            "fontSize": {
+                    "headline-md": [
+                            "24px",
+                            {
+                                    "lineHeight": "32px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "headline-sm": [
+                            "20px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "body-sm": [
+                            "14px",
+                            {
+                                    "lineHeight": "20px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "display-lg": [
+                            "48px",
+                            {
+                                    "lineHeight": "56px",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "label-caps": [
+                            "12px",
+                            {
+                                    "lineHeight": "16px",
+                                    "letterSpacing": "0.1em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "display-lg-mobile": [
+                            "32px",
+                            {
+                                    "lineHeight": "40px",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "label-bold": [
+                            "14px",
+                            {
+                                    "lineHeight": "16px",
+                                    "letterSpacing": "0.05em",
+                                    "fontWeight": "600"
+                            }
+                    ]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .input-field {
+            border: 1px solid #CBD5E1;
+            transition: all 0.2s ease-in-out;
+        }
+        .input-field:focus {
+            border-color: #7bd0ff;
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(123, 208, 255, 0.2);
+        }
+        .auth-container {
+            min-height: calc(100vh - 160px); /* Adjusting for navbar and footer roughly */
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col">
+<!-- TopNavBar Omitted: Automatic Suppression due to Transactional/Login intent -->
+<main class="flex-grow flex flex-col md:flex-row auth-container">
+<!-- Left Side: Hero Image -->
+<div class="hidden md:flex md:w-1/2 relative bg-surface-container-high overflow-hidden" style="background-image: url('https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg'); background-size: cover; background-position: center;">
+<!-- Fallback gradient if image fails or before loading -->
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent"></div>
+<div class="absolute bottom-0 left-0 w-full p-margin-desktop text-white z-10">
+<h1 class="font-display-lg text-display-lg text-white mb-sm drop-shadow-md">Start your next adventure.</h1>
+<p class="font-body-lg text-body-lg text-white/90 max-w-md drop-shadow">Join a community of modern explorers. Plan, discover, and share incredible journeys.</p>
+</div>
+</div>
+<!-- Right Side: Auth Form -->
+<div class="w-full md:w-1/2 flex items-center justify-center p-margin-mobile md:p-margin-desktop bg-surface">
+<div class="w-full max-w-md bg-surface-container-lowest rounded-xl shadow-[0px_20px_25px_-5px_rgba(15,23,42,0.12)] p-lg flex flex-col items-center">
+<!-- Logo -->
+<div class="mb-lg flex flex-col items-center">
+<img alt="GlobeTrotter Logo" class="w-16 h-16 object-contain mb-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1sj0tN7Rc7zzw5Hg7FToLLSr7CvfFMFN86dnvYcSPsISHELAC07rCq1l_MqO9HVSe7rIfdQvwIJxoGPMEYS-15RpStbtCRGQzOK66IXJAyitDtfGHYUhw_xS4DyMBsYWPhjjz-X5D-viFeIFzINFE3wjE_xPcco2DAst5tYUMTr39kkv7NY26QQ3Lcg92i4B1SC0Fs5WVww26NY8bQ0nuMlCrKIRWj_jjWRgR4rlJsQOaRh9ZqijCFw"/>
+<span class="font-headline-md text-headline-md font-bold text-primary">GlobeTrotter</span>
+</div>
+<div class="w-full text-center mb-md">
+<h2 class="font-headline-sm text-headline-sm text-on-surface mb-base">Welcome Back</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Log in to access your itineraries.</p>
+</div>
+<!-- Form -->
+<form action="#" class="w-full flex flex-col gap-md" id="loginForm" method="POST">
+<div class="flex flex-col gap-base">
+<label class="font-label-bold text-label-bold text-on-surface" for="email">Email Address</label>
+<input class="input-field rounded w-full px-sm py-sm font-body-md text-body-md bg-surface-container-lowest text-on-surface placeholder:text-outline-variant" id="email" name="email" placeholder="explorer@example.com" required="" type="email"/>
+</div>
+<div class="flex flex-col gap-base">
+<label class="font-label-bold text-label-bold text-on-surface flex justify-between" for="password">
+                            Password
+                            <a class="font-body-sm text-body-sm text-secondary hover:underline transition-all" href="#">Forgot Password?</a>
+</label>
+<input class="input-field rounded w-full px-sm py-sm font-body-md text-body-md bg-surface-container-lowest text-on-surface placeholder:text-outline-variant" id="password" name="password" placeholder="••••••••" required="" type="password"/>
+</div>
+<button class="w-full bg-[#FF5A36] text-white font-label-bold text-label-bold py-sm px-md rounded transition-all hover:opacity-90 active:scale-95 shadow-sm mt-sm" type="submit">
+                        Login
+                    </button>
+<button class="w-full bg-transparent border border-outline text-on-surface font-label-bold text-label-bold py-sm px-md rounded transition-all hover:bg-surface-container-low active:scale-95 flex justify-center items-center gap-sm" type="button">
+<span class="material-symbols-outlined text-xl">login</span>
+                        Sign in with Google
+                    </button>
+</form>
+<div class="w-full mt-lg text-center border-t border-outline-variant pt-md">
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                        Don't have an account? 
+                        <a class="text-secondary font-bold hover:underline transition-all ml-base" href="#">Sign Up</a>
+</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer Omitted: Suppressed on transactional/login screens to keep focus on canvas -->
+<script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = this.querySelector('button[type="submit"]');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<span class="material-symbols-outlined animate-spin mr-2">sync</span>Logging in...';
+            btn.disabled = true;
+            btn.classList.add('opacity-70', 'cursor-not-allowed');
+            
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+                btn.classList.remove('opacity-70', 'cursor-not-allowed');
+                // Simulate success
+                btn.classList.replace('bg-[#FF5A36]', 'bg-secondary');
+                btn.innerHTML = 'Success!';
+            }, 1500);
+        });
+    </script>
+<script src="app.js"></script></body></html>

@@ -1,0 +1,476 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>GlobeTrotter - Itinerary View</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary-fixed": "#301400",
+                      "tertiary": "#000000",
+                      "on-background": "#191c1e",
+                      "primary-container": "#131b2e",
+                      "on-primary-fixed": "#131b2e",
+                      "secondary-container": "#40c2fd",
+                      "on-tertiary-fixed-variant": "#713700",
+                      "on-primary": "#ffffff",
+                      "inverse-primary": "#bec6e0",
+                      "secondary-fixed": "#c4e7ff",
+                      "tertiary-fixed": "#ffdcc5",
+                      "secondary-fixed-dim": "#7bd0ff",
+                      "inverse-on-surface": "#eff1f3",
+                      "on-primary-container": "#7c839b",
+                      "on-secondary-container": "#004d6a",
+                      "on-primary-fixed-variant": "#3f465c",
+                      "on-secondary": "#ffffff",
+                      "surface-variant": "#e0e3e5",
+                      "on-tertiary": "#ffffff",
+                      "surface-container-lowest": "#ffffff",
+                      "outline": "#76777d",
+                      "outline-variant": "#c6c6cd",
+                      "surface-container-low": "#f2f4f6",
+                      "on-error-container": "#93000a",
+                      "surface-container-high": "#e6e8ea",
+                      "tertiary-fixed-dim": "#ffb783",
+                      "error": "#ba1a1a",
+                      "on-secondary-fixed": "#001e2c",
+                      "inverse-surface": "#2d3133",
+                      "primary": "#000000",
+                      "on-error": "#ffffff",
+                      "primary-fixed": "#dae2fd",
+                      "primary-fixed-dim": "#bec6e0",
+                      "on-surface": "#191c1e",
+                      "on-secondary-fixed-variant": "#004c69",
+                      "error-container": "#ffdad6",
+                      "on-tertiary-container": "#c96b14",
+                      "surface-tint": "#565e74",
+                      "background": "#f7f9fb",
+                      "surface": "#f7f9fb",
+                      "surface-bright": "#f7f9fb",
+                      "surface-container-highest": "#e0e3e5",
+                      "tertiary-container": "#301400",
+                      "on-surface-variant": "#45464d",
+                      "surface-container": "#eceef0",
+                      "surface-dim": "#d8dadc",
+                      "secondary": "#00668a"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "lg": "48px",
+                      "md": "24px",
+                      "margin-desktop": "64px",
+                      "base": "4px",
+                      "gutter": "24px",
+                      "xs": "8px",
+                      "xl": "80px",
+                      "margin-mobile": "16px",
+                      "sm": "16px"
+              },
+              "fontFamily": {
+                      "display-lg": [
+                              "Montserrat"
+                      ],
+                      "body-sm": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "headline-sm": [
+                              "Montserrat"
+                      ],
+                      "headline-md": [
+                              "Montserrat"
+                      ],
+                      "display-lg-mobile": [
+                              "Montserrat"
+                      ],
+                      "label-bold": [
+                              "Inter"
+                      ],
+                      "label-caps": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-sm": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg-mobile": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-bold": [
+                              "14px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-caps": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.1em",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        body {
+            background-color: #F8FAFC;
+        }
+        .itinerary-card:hover {
+            box-shadow: 0px 10px 15px -3px rgba(15, 23, 42, 0.08);
+            transform: translateY(-2px);
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<nav class="bg-surface dark:bg-on-background shadow-sm sticky top-0 z-50 w-full transition-all duration-300">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop max-w-[1440px] mx-auto h-20">
+<div class="flex items-center gap-6">
+<!-- Brand Logo -->
+<a class="font-headline-md text-headline-md font-bold text-primary dark:text-inverse-primary tracking-tight" href="#">
+                    GlobeTrotter
+                </a>
+<!-- Desktop Navigation -->
+<div class="hidden md:flex items-center gap-6 ml-8">
+<a class="text-on-surface-variant dark:text-outline-variant font-medium hover:text-secondary dark:hover:text-secondary-container transition-colors duration-200" href="SCREEN_27">Dashboard</a>
+<a class="text-on-surface-variant dark:text-outline-variant font-medium hover:text-secondary dark:hover:text-secondary-container transition-colors duration-200" href="SCREEN_24">Trips</a>
+<a class="text-secondary dark:text-secondary-fixed border-b-2 border-secondary font-bold pb-1 transition-all duration-200" href="#">Itinerary</a>
+<a class="text-on-surface-variant dark:text-outline-variant font-medium hover:text-secondary dark:hover:text-secondary-container transition-colors duration-200" href="SCREEN_17">Explore</a>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex items-center gap-4">
+<div class="hidden md:flex relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-secondary transition-colors" data-icon="search">search</span>
+<input class="pl-10 pr-4 py-2 border border-outline-variant rounded-full text-body-sm focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary bg-surface-container-lowest w-64 transition-all" placeholder="Search destinations..." type="text">
+</div>
+<button class="hidden lg:block px-6 py-2 bg-secondary text-on-secondary rounded-full font-label-bold text-label-bold hover:bg-secondary/90 transition-colors shadow-sm">
+                    Create Trip
+                </button>
+<button class="hidden lg:block px-6 py-2 border border-secondary text-secondary rounded-full font-label-bold text-label-bold hover:bg-secondary/5 transition-colors">
+                    Log In
+                </button>
+<a href="SCREEN_4" class="w-10 h-10 rounded-full bg-surface-container-highest overflow-hidden border border-outline-variant flex items-center justify-center hover:ring-2 hover:ring-secondary transition-all"><img alt="User profile avatar" class="w-full h-full object-cover" data-alt="A close up portrait of a modern traveler smiling, well lit, professional photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmYn_tDdnJ8QuNcRQ_hxslWINJPLCq8q7IGdjF2Di-44hGPK7Q4PKp7UDb8-LIxQ7mJsC2BGEWee1ZmFl6PQYFbDiMAfhQeOM7qMTqwBo8gqEQDglT4J-cF0orIxM2iHg2yKzOsiD9Mh0YeBTDDJQBcrKWEPtAZv3is6_fY4uXjpfYPTybJOebGby-dIy3afaFagSfAecnhLOVZCI88A0amfeBYAekGzXK6O2j3gt-qlXXnXM2WHastQ"></a>
+<!-- Mobile Menu Toggle -->
+<button class="md:hidden text-on-surface p-2">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="flex-grow w-full max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop py-lg">
+<!-- Controls Bar -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-md gap-4">
+<div class="relative w-full md:w-96">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant" data-icon="search">search</span>
+<input class="w-full pl-10 pr-4 py-3 border border-outline-variant rounded-lg text-body-md focus:border-secondary focus:ring-1 focus:ring-secondary bg-surface-container-lowest" placeholder="Search itineraries..." type="text">
+</div>
+<div class="flex flex-wrap items-center gap-3">
+<div class="flex bg-surface-container rounded-lg p-1">
+<button class="px-4 py-1.5 bg-surface-container-lowest shadow-sm rounded-md text-label-bold font-label-bold text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]" data-icon="view_list">view_list</span> List
+                    </button>
+<a href="SCREEN_9" class="px-4 py-1.5 rounded-md text-label-bold font-label-bold text-on-surface-variant hover:text-on-surface flex items-center gap-2 transition-colors"><span class="material-symbols-outlined text-[18px]" data-icon="calendar_month">calendar_month</span> Calendar</a>
+</div>
+<div class="h-6 w-px bg-outline-variant mx-2 hidden md:block"></div>
+<button class="px-4 py-2 border border-outline-variant rounded-lg text-body-sm font-medium text-on-surface flex items-center gap-2 hover:bg-surface-container-low transition-colors bg-surface-container-lowest">
+                    Group by
+                    <span class="material-symbols-outlined text-[18px]" data-icon="keyboard_arrow_down">keyboard_arrow_down</span>
+</button>
+<button class="px-4 py-2 border border-outline-variant rounded-lg text-body-sm font-medium text-on-surface flex items-center gap-2 hover:bg-surface-container-low transition-colors bg-surface-container-lowest">
+<span class="material-symbols-outlined text-[18px]" data-icon="filter_list">filter_list</span> Filter
+                </button>
+<button class="px-4 py-2 border border-outline-variant rounded-lg text-body-sm font-medium text-on-surface flex items-center gap-2 hover:bg-surface-container-low transition-colors bg-surface-container-lowest">
+                    Sort by
+                    <span class="material-symbols-outlined text-[18px]" data-icon="swap_vert">swap_vert</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Itinerary List Sidebar (or full width on mobile) -->
+<div class="col-span-1 lg:col-span-4 space-y-lg">
+<!-- Ongoing Section -->
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface mb-sm flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary-container"></span>
+                        Ongoing
+                    </h2>
+<div class="space-y-4">
+<!-- Active Trip Card -->
+<div class="bg-surface-container-lowest border-2 border-secondary rounded-xl overflow-hidden itinerary-card cursor-pointer relative shadow-sm">
+<div class="absolute top-3 right-3 bg-surface-container-lowest/90 backdrop-blur-sm px-3 py-1 rounded-full text-label-caps font-label-caps text-secondary z-10 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="flight_takeoff">flight_takeoff</span> Day 3 of 10
+                            </div>
+<div class="h-32 bg-surface-container relative">
+<img alt="Scenic view of a mountain lake" class="w-full h-full object-cover" data-alt="" src="https://lh3.googleusercontent.com/aida/AEtjO1V-oCLCpOwRnEAmf0TbTyrjUAqRkG2IlPNnx2Ma0-27U9EltNGPgrBjf12nL_siGta92ia5pDKydqmEJXt2VL-vl2WakWyOvbGJ4YiRVFQH5uwt-JPbXwNJbgCfKdqzOxeuyJJoKTpqtRtuN-uSmSHr9jitwmYB46DFQMFRDlrSWze2KzEWb-gyll9-v29e24MivXfSKgZwlgvI5dqf1RwEpHzks4SYtr8eL80DQ6t1Hmos51trdjTKLLQ">
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-3 left-4 text-on-primary">
+<h3 class="font-headline-sm text-headline-sm font-bold">Italian Alps Escape</h3>
+<p class="font-body-sm text-body-sm opacity-90">Oct 12 - Oct 22</p>
+</div>
+</div>
+<div class="p-4 bg-surface-container-lowest">
+<p class="text-body-sm text-on-surface-variant line-clamp-2">Exploring the Dolomites, hiking trails, and relaxing by Lake Braies.</p>
+<div class="mt-3 flex items-center gap-2 text-label-bold font-label-bold text-secondary">
+                                    View Details <span class="material-symbols-outlined text-[16px]" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Upcoming Section -->
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface mb-sm flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-outline-variant"></span>
+                        Up-coming
+                    </h2>
+<div class="space-y-4">
+<!-- Upcoming Card 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden itinerary-card cursor-pointer group">
+<div class="h-24 bg-surface-container relative">
+<img alt="Santorini view" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="A bright sunny day looking over the blue domes of Santorini, Greece, wide shot, vibrant colors, travel photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuANDtIZpuWa4lrQfESb9FKIVVuOEeWlYqDNseXnDVEZOB-zzyEvqGuJbXs0lexUxqdmj9N_7eQRsuPxNgUHaJRKERGy4pssMhyZ7vD4_CP6ZEpwEA4BA06kcWnOA8hQKZdaDDVtGBWbiWlCr-xhsUwzt4vHC9D_VsRz2vavop5DNDHQHQngNdWTC9vhkySXmzVV6qsIHnTjBrgA6xz_9S-2UAmLnvXsZ4ST6GCWem4G74hdiESgEaKLyA">
+</div>
+<div class="p-4">
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">Santorini Retreat</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-2">Nov 05 - Nov 12 • 7 Days</p>
+<div class="flex gap-2">
+<span class="px-2 py-1 bg-surface-container-low text-on-surface-variant rounded text-[10px] font-bold uppercase tracking-wider">Flights</span>
+<span class="px-2 py-1 bg-surface-container-low text-on-surface-variant rounded text-[10px] font-bold uppercase tracking-wider">Hotels</span>
+</div>
+</div>
+</div>
+<!-- Upcoming Card 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden itinerary-card cursor-pointer group">
+<div class="p-4">
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">Kyoto Cherry Blossoms</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Apr 02 - Apr 15 • 14 Days</p>
+<p class="text-body-sm text-error mt-2 font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="warning">warning</span> Missing Flights
+                                </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Completed Section -->
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface mb-sm flex items-center gap-2 text-on-surface-variant">
+<span class="w-2 h-2 rounded-full bg-surface-dim"></span>
+                        Completed
+                    </h2>
+<div class="space-y-4 opacity-70">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-4 cursor-pointer hover:opacity-100 transition-opacity">
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">Paris Weekend</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Sep 15 - Sep 18, 2023</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Detailed Itinerary Canvas (Main View) -->
+<div class="col-span-1 lg:col-span-8 bg-surface-container-lowest rounded-2xl border border-outline-variant shadow-sm overflow-hidden flex flex-col h-full min-h-[800px]">
+<!-- Detail Header -->
+<div class="relative h-48 md:h-64 flex-shrink-0">
+<img alt="Scenic view of a mountain lake header" class="w-full h-full object-cover" data-alt="" src="https://lh3.googleusercontent.com/aida/AEtjO1V-oCLCpOwRnEAmf0TbTyrjUAqRkG2IlPNnx2Ma0-27U9EltNGPgrBjf12nL_siGta92ia5pDKydqmEJXt2VL-vl2WakWyOvbGJ4YiRVFQH5uwt-JPbXwNJbgCfKdqzOxeuyJJoKTpqtRtuN-uSmSHr9jitwmYB46DFQMFRDlrSWze2KzEWb-gyll9-v29e24MivXfSKgZwlgvI5dqf1RwEpHzks4SYtr8eL80DQ6t1Hmos51trdjTKLLQ">
+<div class="absolute inset-0 bg-gradient-to-t from-primary-container/90 via-primary-container/40 to-transparent"></div>
+<div class="absolute bottom-0 left-0 w-full p-6 flex justify-between items-end">
+<div>
+<div class="flex items-center gap-2 mb-2">
+<span class="bg-secondary text-on-secondary px-3 py-1 rounded-full font-label-caps text-label-caps tracking-widest">ONGOING</span>
+<span class="text-on-primary font-body-sm text-body-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="location_on">location_on</span> Northern Italy
+                                </span>
+</div>
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-primary text-shadow-sm">Italian Alps Escape</h1>
+</div>
+<div class="hidden md:flex gap-2">
+<button class="w-10 h-10 rounded-full bg-surface-container-lowest/20 backdrop-blur-md flex items-center justify-center text-on-primary hover:bg-surface-container-lowest/40 transition-colors">
+<span class="material-symbols-outlined" data-icon="share">share</span>
+</button>
+<a href="SCREEN_22" class="w-10 h-10 rounded-full bg-surface-container-lowest/20 backdrop-blur-md flex items-center justify-center text-on-primary hover:bg-surface-container-lowest/40 transition-colors"><span class="material-symbols-outlined" data-icon="edit">edit</span></a>
+</div>
+</div>
+</div>
+<!-- Timeline Content -->
+<div class="flex-grow p-6 md:p-8 overflow-y-auto bg-surface-container-lowest">
+<!-- City Header -->
+<div class="flex items-center gap-4 mb-8">
+<div class="w-12 h-12 rounded-full bg-secondary-container/20 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" data-icon="location_city">location_city</span>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md font-bold text-on-surface">Cortina d'Ampezzo</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Oct 14 - Oct 16 • 3 Days</p>
+</div>
+</div>
+<!-- Day 1 block -->
+<div class="relative pl-6 md:pl-8 border-l-2 border-surface-variant pb-10">
+<div class="absolute w-4 h-4 rounded-full bg-secondary border-4 border-surface-container-lowest -left-[9px] top-1"></div>
+<div class="mb-4">
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">Day 3: Lake Braies &amp; Hike</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Saturday, Oct 14</p>
+</div>
+<!-- Activity Items -->
+<div class="space-y-4">
+<!-- Activity Card 1 -->
+<div class="bg-surface-container-low rounded-xl p-4 flex gap-4 hover:shadow-md transition-shadow group border border-transparent hover:border-outline-variant">
+<div class="flex flex-col items-center min-w-[60px]">
+<span class="font-label-bold text-label-bold text-on-surface">08:00</span>
+<span class="text-[10px] text-on-surface-variant uppercase">AM</span>
+</div>
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface-variant group-hover:text-secondary group-hover:bg-secondary/10 transition-colors flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]" data-icon="directions_car">directions_car</span>
+</div>
+<div class="flex-grow">
+<h4 class="font-body-md text-body-md font-semibold text-on-surface">Drive to Lago di Braies</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Pick up rental car from city center. Approx 45 min drive.</p>
+<div class="mt-2 flex items-center gap-2">
+<span class="px-2 py-0.5 bg-surface-container-lowest border border-outline-variant rounded text-[11px] font-medium text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" data-icon="receipt">receipt</span> Pre-paid
+                                        </span>
+</div>
+</div>
+</div>
+<!-- Activity Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-4 flex gap-4 shadow-[0px_4px_6px_-1px_rgba(0,0,0,0.05)] border border-secondary/20 relative overflow-hidden group">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-secondary"></div>
+<div class="flex flex-col items-center min-w-[60px]">
+<span class="font-label-bold text-label-bold text-on-surface">09:30</span>
+<span class="text-[10px] text-on-surface-variant uppercase">AM</span>
+</div>
+<div class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center text-secondary flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]" data-icon="hiking">hiking</span>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start">
+<h4 class="font-body-md text-body-md font-semibold text-on-surface">Hike around Lake Braies</h4>
+<span class="text-secondary-container font-label-bold text-label-bold bg-secondary-container/10 px-2 py-1 rounded">Active Now</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Easy 3.5km loop trail around the emerald lake. Photography stops included.</p>
+<!-- Embedded Map/Image Snippet -->
+<div class="mt-3 h-24 w-full md:w-2/3 rounded-lg overflow-hidden relative">
+<img alt="Lake Braies view" class="w-full h-full object-cover" data-alt="" src="https://lh3.googleusercontent.com/aida/AEtjO1V-oCLCpOwRnEAmf0TbTyrjUAqRkG2IlPNnx2Ma0-27U9EltNGPgrBjf12nL_siGta92ia5pDKydqmEJXt2VL-vl2WakWyOvbGJ4YiRVFQH5uwt-JPbXwNJbgCfKdqzOxeuyJJoKTpqtRtuN-uSmSHr9jitwmYB46DFQMFRDlrSWze2KzEWb-gyll9-v29e24MivXfSKgZwlgvI5dqf1RwEpHzks4SYtr8eL80DQ6t1Hmos51trdjTKLLQ">
+<div class="absolute inset-0 bg-black/10"></div>
+</div>
+</div>
+</div>
+<!-- Activity Card 3 -->
+<div class="bg-surface-container-low rounded-xl p-4 flex gap-4 hover:shadow-md transition-shadow group border border-transparent hover:border-outline-variant">
+<div class="flex flex-col items-center min-w-[60px]">
+<span class="font-label-bold text-label-bold text-on-surface">01:00</span>
+<span class="text-[10px] text-on-surface-variant uppercase">PM</span>
+</div>
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface-variant group-hover:text-secondary group-hover:bg-secondary/10 transition-colors flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]" data-icon="restaurant">restaurant</span>
+</div>
+<div class="flex-grow">
+<h4 class="font-body-md text-body-md font-semibold text-on-surface">Lunch at Malga Foresta</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Traditional South Tyrolean cuisine. Reservation under 'Smith'.</p>
+<div class="mt-2 flex items-center gap-2">
+<span class="px-2 py-0.5 bg-surface-container-lowest border border-outline-variant rounded text-[11px] font-medium text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" data-icon="euro">euro</span> €45 Est.
+                                        </span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Day 2 block (simplified) -->
+<div class="relative pl-6 md:pl-8 border-l-2 border-surface-variant pb-4">
+<div class="absolute w-4 h-4 rounded-full bg-surface-container-highest border-4 border-surface-container-lowest -left-[9px] top-1"></div>
+<div class="mb-4">
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface opacity-70">Day 4: Tre Cime di Lavaredo</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant opacity-70">Sunday, Oct 15</p>
+</div>
+<a href="SCREEN_14" class="py-4 border-2 border-dashed border-outline-variant rounded-xl flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low hover:border-secondary transition-colors cursor-pointer group"><span class="material-symbols-outlined mb-2 group-hover:text-secondary" data-icon="add_circle">add_circle</span><span class="font-label-bold text-label-bold">Add Activity for Day 4</span></a>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-primary-container dark:bg-tertiary-container w-full py-md px-margin-mobile md:px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-sm mt-auto">
+<div class="font-headline-sm text-headline-sm font-bold text-on-primary">
+            GlobeTrotter
+        </div>
+<div class="flex flex-wrap items-center justify-center gap-6">
+<a class="font-body-sm text-body-sm text-on-primary-container/80 hover:text-on-primary transition-colors duration-200" href="#">Privacy Policy</a>
+<a class="font-body-sm text-body-sm text-on-primary-container/80 hover:text-on-primary transition-colors duration-200" href="#">Terms of Service</a>
+<a class="font-body-sm text-body-sm text-on-primary-container/80 hover:text-on-primary transition-colors duration-200" href="#">Help Center</a>
+<a class="font-body-sm text-body-sm text-on-primary-container/80 hover:text-on-primary transition-colors duration-200" href="#">Contact Us</a>
+</div>
+<div class="font-body-sm text-body-sm text-on-primary-container/80">
+            © 2024 GlobeTrotter. All rights reserved.
+        </div>
+</footer>
+
+
+<script src="app.js"></script></body></html>
